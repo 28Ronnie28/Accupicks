@@ -23,7 +23,6 @@ public class Server {
     List<ConnectionHandler> connectionsList = new ArrayList<>();
     final int MAX_CONNECTIONS = 100;
     final int PORT = 25760;
-    final int PORT2 = 25761;
     private Socket s;
     private ClientListner cl;
 
@@ -63,12 +62,9 @@ public class Server {
         @Override
         public void run() {
             try {
-                System.out.println("Server> Trying to set up commandline server on port " + PORT);
+                System.out.println("Server> Trying to set up server on port " + PORT);
                 ServerSocket ss = new ServerSocket(PORT);
-                System.out.println("Server> Set up commandline server on port " + PORT);
-                System.out.println("Server> Trying to set up object server on port " + PORT2);
-                ServerSocket ss2 = new ServerSocket(PORT2);
-                System.out.println("Server> Set up object server on port " + PORT2);
+                System.out.println("Server> Set up server on port " + PORT);
                 while (true) {
                     while (connectionsList.size() < MAX_CONNECTIONS) {
                         System.out.println("Server> Waiting for client connection " + connectionsList.size() + 1);
