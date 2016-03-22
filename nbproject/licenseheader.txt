@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Sport score preditcion software
+${licensePrefix}by Ronnie Muller & Stephan Malan
+<#if licenseLast??>
+${licenseLast}
+</#if>
