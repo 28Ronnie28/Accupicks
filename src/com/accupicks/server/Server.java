@@ -8,15 +8,13 @@ import com.shared.Client;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Server {
 
@@ -25,12 +23,16 @@ public class Server {
     final int PORT = 25760;
     private Socket s;
     private ClientListner cl;
+    private ServerCommandListner scl;
 
     public Server() {
         cl = new ClientListner();
         cl.start();
+        scl = new ServerCommandListner();
+        scl.start();
     }
 
+    //Thread to listen to input from user into server console
     public class ServerCommandListner extends Thread {
 
         public ServerCommandListner() {
@@ -42,10 +44,34 @@ public class Server {
                 Scanner scn = new Scanner(System.in);
                 while (scn.hasNextLine()) {
                     String command = scn.nextLine();
-                    if (command.startsWith("")) {
-                        
+                    if (command.equals("/exit")) {
+                        System.out.println("Server> Shutting down server");
+                        System.exit(0);
+                    } else if (command.equals("/connection -list")) {
+                        if (connectionsList.isEmpty()) {
+                            System.out.println("Server> No connections found");
+                        } else {
+                            System.out.println("Server> Current connections:");
+                            for (ConnectionHandler ch : connectionsList) {
+                                if (ch.getClient().getName() == null) {
+                                    System.out.println("\tConnection " + ch.getConnectionNum() + ": Unauthorised - " + ch.getSocket().getInetAddress().getHostAddress() + ":" + ch.getSocket().getLocalPort());
+                                } else {
+                                    System.out.println("\tConnection " + ch.getConnectionNum() + ": " + ch.getClient().getName() + " - " + ch.getSocket().getInetAddress().getHostAddress() + ":" + ch.getSocket().getLocalPort());
+                                }
+                            }
+                        }
+                    } else if (command.startsWith("/connection")) {
+
+                    } else if (command.startsWith("/help")) {
+
                     } else if (command.startsWith("")) {
-                        
+
+                    } else if (command.startsWith("")) {
+
+                    } else if (command.startsWith("")) {
+
+                    } else if (command.startsWith("")) {
+
                     } else {
                         System.out.println("Server> Unknown command: '" + command + "'");
                     }
@@ -54,6 +80,7 @@ public class Server {
         }
     }
 
+    //Thread to listen for new clients and instantiate new connections with them
     public class ClientListner extends Thread {
 
         public ClientListner() {
@@ -69,10 +96,14 @@ public class Server {
                     while (connectionsList.size() < MAX_CONNECTIONS) {
                         System.out.println("Server> Waiting for client connection " + connectionsList.size() + 1);
                         s = ss.accept();
+                        System.out.println("wtf");
                         s.setKeepAlive(true);
+                        System.out.println("what?");
                         connectionsList.add(new ConnectionHandler(s, connectionsList.size() + 1));
+                        System.out.println("1");
                         connectionsList.get(connectionsList.size() - 1).start();
-                        System.out.println("Server> Connection established client " + connectionsList.size() + " on " + s.getInetAddress() + ":" + s.getPort());
+                        System.out.println("2");
+                        System.out.println("Server> Connection established client " + connectionsList.size() + " on " + s.getInetAddress().getHostAddress() + ":" + s.getPort());
                     }
                 }
             } catch (IOException ex) {
@@ -81,11 +112,12 @@ public class Server {
         }
     }
 
+    //Thread to control communication between client and server
     public class ConnectionHandler extends Thread {
 
         private Socket s;
         private int connectionNum;
-        private BufferedReader br;
+        private ObjectInputStream ois;
         private ObjectOutputStream oos;
         private Client client;
         private Boolean authorised = false;
@@ -94,8 +126,11 @@ public class Server {
             this.s = s;
             this.connectionNum = connectionNum;
             try {
-                br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+                System.out.println("1");
+                ois = new ObjectInputStream(s.getInputStream());
+                System.out.println("2");
                 oos = new ObjectOutputStream(s.getOutputStream());
+                System.out.println("3");
             } catch (IOException ex) {
                 System.out.println("Server> Connection " + connectionNum + "> " + ex);
             }
@@ -105,15 +140,15 @@ public class Server {
         public void run() {
             while (true) {
                 String command = getReply();
-                if (command.startsWith("auth:")) {
-                    String userPass = command.substring(8);
+                if (command.startsWith("Auth:")) {
+                    String userPass = command.substring(5);
                     if (userPass.contains(":") && userPass.split(":").length == 2) {
                         if (userPass.split(":")[0].matches("^[a-zA-Z0-9]*$") && userPass.split(":")[1].matches("^[a-zA-Z0-9]*$")) {
                             //TODO retrieve from database
                             if (userPass.equals("admin:admin")) {
                                 authorised = true;
                                 client = new Client(1, "admin", "admin");
-                                send("authed");
+                                send("Authed");
                             }
                         }
                     }
@@ -131,8 +166,8 @@ public class Server {
 
         public String getReply() {
             try {
-                while (!br.ready());
-                return br.readLine();
+                while (ois.available() <= 0);
+                return ois.readUTF();
             } catch (IOException ex) {
                 System.out.println("Server> Connection " + connectionNum + "> " + ex);
             }
@@ -165,6 +200,18 @@ public class Server {
 
         public void updateConnectionNum(int connectionNum) {
             this.connectionNum = connectionNum;
+        }
+
+        public Client getClient() {
+            return client;
+        }
+
+        public int getConnectionNum() {
+            return connectionNum;
+        }
+
+        public Socket getSocket() {
+            return s;
         }
     }
 
