@@ -30,9 +30,7 @@ public class ClientConenctionHandler{
             s = new Socket(IP_ADDRESS, PORT);
             System.out.println("Client> Successfully connected to server");
             ois = new ObjectInputStream(s.getInputStream());
-            System.out.println("1");
             oos = new ObjectOutputStream(s.getOutputStream());
-            System.out.println("2");
             return true;
         } catch (IOException ex) {
             System.out.println("Client> " + ex);

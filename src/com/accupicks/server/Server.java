@@ -53,7 +53,7 @@ public class Server {
                         } else {
                             System.out.println("Server> Current connections:");
                             for (ConnectionHandler ch : connectionsList) {
-                                if (ch.getClient().getName() == null) {
+                                if (ch.getClient().getName() == null) {  //TODO add prevention for nullpointerexception
                                     System.out.println("\tConnection " + ch.getConnectionNum() + ": Unauthorised - " + ch.getSocket().getInetAddress().getHostAddress() + ":" + ch.getSocket().getLocalPort());
                                 } else {
                                     System.out.println("\tConnection " + ch.getConnectionNum() + ": " + ch.getClient().getName() + " - " + ch.getSocket().getInetAddress().getHostAddress() + ":" + ch.getSocket().getLocalPort());
@@ -94,15 +94,11 @@ public class Server {
                 System.out.println("Server> Set up server on port " + PORT);
                 while (true) {
                     while (connectionsList.size() < MAX_CONNECTIONS) {
-                        System.out.println("Server> Waiting for client connection " + connectionsList.size() + 1);
+                        System.out.println("Server> Waiting for client connection " + (connectionsList.size() + 1));
                         s = ss.accept();
-                        System.out.println("wtf");
                         s.setKeepAlive(true);
-                        System.out.println("what?");
                         connectionsList.add(new ConnectionHandler(s, connectionsList.size() + 1));
-                        System.out.println("1");
                         connectionsList.get(connectionsList.size() - 1).start();
-                        System.out.println("2");
                         System.out.println("Server> Connection established client " + connectionsList.size() + " on " + s.getInetAddress().getHostAddress() + ":" + s.getPort());
                     }
                 }
@@ -126,11 +122,9 @@ public class Server {
             this.s = s;
             this.connectionNum = connectionNum;
             try {
-                System.out.println("1");
-                ois = new ObjectInputStream(s.getInputStream());
-                System.out.println("2");
                 oos = new ObjectOutputStream(s.getOutputStream());
-                System.out.println("3");
+                //oos.flush();
+                ois = new ObjectInputStream(s.getInputStream());
             } catch (IOException ex) {
                 System.out.println("Server> Connection " + connectionNum + "> " + ex);
             }

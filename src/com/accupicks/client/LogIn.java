@@ -179,6 +179,7 @@ public class LogIn extends javax.swing.JFrame {
         if (cch.authorise(AccountNametxf.getText(), String.valueOf(Passwordtxf.getPassword()))) {
             System.out.println("Client> Authorised");
             client = cch.getClient();
+            System.out.println("2");
             System.out.println("Client> Welcome " + client.getName());
         } else {
             System.out.println("Client> Incorrect username or password");
