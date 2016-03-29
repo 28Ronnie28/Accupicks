@@ -53,7 +53,7 @@ public class Server {
                         } else {
                             System.out.println("Server> Current connections:");
                             for (ConnectionHandler ch : connectionsList) {
-                                if (ch.getClient().getName() == null) {  //TODO add prevention for nullpointerexception
+                                if (ch.getClient() == null) {
                                     System.out.println("\tConnection " + ch.getConnectionNum() + ": Unauthorised - " + ch.getSocket().getInetAddress().getHostAddress() + ":" + ch.getSocket().getLocalPort());
                                 } else {
                                     System.out.println("\tConnection " + ch.getConnectionNum() + ": " + ch.getClient().getName() + " - " + ch.getSocket().getInetAddress().getHostAddress() + ":" + ch.getSocket().getLocalPort());
@@ -141,13 +141,14 @@ public class Server {
                             //TODO retrieve from database
                             if (userPass.equals("admin:admin")) {
                                 authorised = true;
-                                client = new Client(1, "admin", "admin");
+                                client = new Client(1, "admin", "admin", "swooosh.apps@gmail.com");
+                                System.out.println("Server> Connection " + connectionNum + "> Authorised connection with " + client.getName());
                                 send("Authed");
                             }
                         }
                     }
-                } else if (authorised && command.startsWith("GetClient")) {
-                    send(client);
+                } else if (authorised && command.equals("GetClient")) {
+                    sendObject(client);
                 } else if (authorised && command.startsWith("auth:")) {
 
                 } else if (authorised && command.startsWith("auth:")) {
@@ -177,7 +178,7 @@ public class Server {
             }
         }
 
-        public void send(Object object) {
+        public void sendObject(Object object) {
             try {
                 oos.writeObject(object);
                 oos.flush();

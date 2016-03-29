@@ -9,8 +9,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ClientConenctionHandler{
 
@@ -39,6 +37,7 @@ public class ClientConenctionHandler{
     }
 
     public Boolean authorise(String username, String password) {
+        System.out.println("Auth:" + username + ":" + password);
         sendString("Auth:" + username + ":" + password);
         return getReply().equals("Authed");
     }
@@ -61,8 +60,9 @@ public class ClientConenctionHandler{
     
     public Object getObject() {
         try {
-            while (ois.available() <= 0);
-            return ois.readObject();
+            Object object;
+            while ((object = ois.readObject()) == null);
+            return object;
         } catch (IOException | ClassNotFoundException ex) {
             System.out.println("Client> " + ex);
         }
