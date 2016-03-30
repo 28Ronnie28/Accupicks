@@ -4,10 +4,14 @@
  */
 package com.accupicks.client;
 
+import com.shared.Client;
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import com.shared.Client;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -16,6 +20,13 @@ import com.shared.Client;
 public class RugbyLiveScoreKeepingGameData extends javax.swing.JFrame {
 JLabel backgroundLbl = new JLabel();
 private final Client CLIENT;
+Timer t = new Timer(1000, new Listener());
+int HalfLength = 1;
+int Minleft = HalfLength-1;
+int Secleft = 59;
+static String TeamPlayer;
+static String PenaltyOverOrMissed;
+
     /**
      * Creates new form RugbyLiveScoreKeepingGameData
      */
@@ -30,6 +41,44 @@ private final Client CLIENT;
         add(backgroundLbl);
         backgroundLbl.setIcon(new ImageIcon(new ImageIcon(AdminHome.class.getResource("/resources/RugbyBackground.png")).getImage().getScaledInstance(1366, 768, java.awt.Image.SCALE_SMOOTH)));
         
+    }
+    
+    class Listener implements ActionListener{    
+        public void actionPerformed(ActionEvent a) {           
+            if(Minleft>-1){
+                TimeLbl.setText(String.format("%02d", Minleft) + ":" + String.format("%02d", Secleft));            
+                if(Secleft>0){
+                    Secleft--;
+                }else{
+                    Minleft--;
+                    Secleft = 59;
+                }
+            }else{
+                StartPauseBtn.setSelected(false);
+            }
+        }
+    }
+    
+    private void PointsScored(int Points){
+        if(TeamPlayer.substring(0, TeamPlayer.indexOf("#")).matches(Team1Lbl.getText())){
+            Team1ScoreLbl.setText(Integer.toString(Integer.parseInt(Team1ScoreLbl.getText())+Points));
+        }else{
+            Team2ScoreLbl.setText(Integer.toString(Integer.parseInt(Team2ScoreLbl.getText())+Points));
+        }
+    }
+    
+    private void TryScored(){
+        PointsScored(5);
+        //Add to player Stats
+    }
+    
+    private void PenaltyCommited(){
+        RugbyLiveScoreKeepingGameDataPenalty dialog = new RugbyLiveScoreKeepingGameDataPenalty(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+        if(PenaltyOverOrMissed.substring(0, PenaltyOverOrMissed.indexOf("#")).matches("KickAtGoal$Over")){
+            PointsScored(3);
+        }
+        //Add to player Stats
     }
 
     /**
@@ -46,66 +95,66 @@ private final Client CLIENT;
         LiveScoreKeepingInfoHeaderLbl = new javax.swing.JLabel();
         BackBtn = new javax.swing.JButton();
         StatsTabbedPane = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        BatFirstLbl7 = new javax.swing.JLabel();
-        BatFirstLbl10 = new javax.swing.JLabel();
-        BowlFirstLbl1 = new javax.swing.JLabel();
-        BatFirstLbl12 = new javax.swing.JLabel();
-        BatFirstLbl3 = new javax.swing.JLabel();
-        BatFirstLbl8 = new javax.swing.JLabel();
-        BatFirstLbl6 = new javax.swing.JLabel();
-        BatFirstLbl = new javax.swing.JLabel();
-        BatFirstLbl11 = new javax.swing.JLabel();
-        BatFirstLbl1 = new javax.swing.JLabel();
-        BatFirstLbl2 = new javax.swing.JLabel();
-        BatFirstLbl5 = new javax.swing.JLabel();
-        BatFirstLbl4 = new javax.swing.JLabel();
-        BatFirstLbl9 = new javax.swing.JLabel();
-        BowlFirstLbl = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        BatFirstLbl13 = new javax.swing.JLabel();
-        BatFirstLbl14 = new javax.swing.JLabel();
-        BowlFirstLbl2 = new javax.swing.JLabel();
-        BatFirstLbl15 = new javax.swing.JLabel();
-        BatFirstLbl16 = new javax.swing.JLabel();
-        BatFirstLbl17 = new javax.swing.JLabel();
-        BatFirstLbl18 = new javax.swing.JLabel();
-        BatFirstLbl19 = new javax.swing.JLabel();
-        BatFirstLbl20 = new javax.swing.JLabel();
-        BatFirstLbl21 = new javax.swing.JLabel();
-        BatFirstLbl22 = new javax.swing.JLabel();
-        BatFirstLbl23 = new javax.swing.JLabel();
-        BatFirstLbl24 = new javax.swing.JLabel();
-        BatFirstLbl25 = new javax.swing.JLabel();
-        BowlFirstLbl3 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        Team1TeamPanel = new javax.swing.JPanel();
+        T1P11Lbl = new javax.swing.JLabel();
+        T1P13Lbl = new javax.swing.JLabel();
+        T1P3Lbl = new javax.swing.JLabel();
+        T1P15Lbl = new javax.swing.JLabel();
+        T1P6Lbl = new javax.swing.JLabel();
+        T1P10Lbl = new javax.swing.JLabel();
+        T1P9Lbl = new javax.swing.JLabel();
+        T1P1Lbl = new javax.swing.JLabel();
+        T1P14Lbl = new javax.swing.JLabel();
+        T1P4Lbl = new javax.swing.JLabel();
+        T1P5Lbl = new javax.swing.JLabel();
+        T1P8Lbl = new javax.swing.JLabel();
+        T1P7Lbl = new javax.swing.JLabel();
+        T1P12Lbl = new javax.swing.JLabel();
+        T1P2Lbl = new javax.swing.JLabel();
+        Team2TeamPanel = new javax.swing.JPanel();
+        T2P11Lbl = new javax.swing.JLabel();
+        T2P13Lbl = new javax.swing.JLabel();
+        T2P3Lbl = new javax.swing.JLabel();
+        T2P15Lbl = new javax.swing.JLabel();
+        T2P6Lbl = new javax.swing.JLabel();
+        T2P10Lbl = new javax.swing.JLabel();
+        T2P9Lbl = new javax.swing.JLabel();
+        T2P1Lbl = new javax.swing.JLabel();
+        T2P14Lbl = new javax.swing.JLabel();
+        T2P4Lbl = new javax.swing.JLabel();
+        T2P5Lbl = new javax.swing.JLabel();
+        T2P8Lbl = new javax.swing.JLabel();
+        T2P1Lb7 = new javax.swing.JLabel();
+        T2P12Lbl = new javax.swing.JLabel();
+        T2P2Lbl = new javax.swing.JLabel();
+        MatchStatsPanel = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Team2StatsTbl = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        LiveScoreKeepingInfoHeaderLbl1 = new javax.swing.JLabel();
-        LiveScoreKeepingInfoHeaderLbl2 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
+        Team1StatsTbl = new javax.swing.JTable();
+        Team1MSLbl = new javax.swing.JLabel();
+        Team2MSLbl = new javax.swing.JLabel();
+        MatchFactsPanel = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        MatchFactsTbl = new javax.swing.JTable();
         AccountNameLbl = new javax.swing.JLabel();
         AccuPicksHeaderLbl1 = new javax.swing.JLabel();
         ScoreTimePanel = new javax.swing.JPanel();
-        CricketHeaderLbl3 = new javax.swing.JLabel();
-        CricketHeaderLbl2 = new javax.swing.JLabel();
-        CricketHeaderLbl4 = new javax.swing.JLabel();
-        CricketHeaderLbl1 = new javax.swing.JLabel();
-        CricketHeaderLbl5 = new javax.swing.JLabel();
-        CricketHeaderLbl6 = new javax.swing.JLabel();
+        Team2ScoreLbl = new javax.swing.JLabel();
+        Team2Lbl = new javax.swing.JLabel();
+        Team1ScoreLbl = new javax.swing.JLabel();
+        Team1Lbl = new javax.swing.JLabel();
+        TimeLbl = new javax.swing.JLabel();
+        TimeHeaderLbl = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        BackBtn3 = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        ResetTimeBtn = new javax.swing.JButton();
+        StartPauseBtn = new javax.swing.JToggleButton();
         jPanel6 = new javax.swing.JPanel();
-        BackBtn1 = new javax.swing.JButton();
-        BackBtn2 = new javax.swing.JButton();
+        TryBtn = new javax.swing.JButton();
+        PenaltyBtn = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
-        BackBtn8 = new javax.swing.JButton();
-        BackBtn9 = new javax.swing.JButton();
+        KnockOnBtn = new javax.swing.JButton();
+        LineOutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -135,360 +184,360 @@ private final Client CLIENT;
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel1.setOpaque(false);
+        Team1TeamPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        Team1TeamPanel.setOpaque(false);
 
-        BatFirstLbl7.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl7.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl7.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl7.setText("11.  Winger");
+        T1P11Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P11Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P11Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P11Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P11Lbl.setText("11.  Winger");
 
-        BatFirstLbl10.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl10.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl10.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl10.setText("13. Center");
+        T1P13Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P13Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P13Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P13Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P13Lbl.setText("13. Center");
 
-        BowlFirstLbl1.setBackground(new java.awt.Color(51, 51, 51));
-        BowlFirstLbl1.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BowlFirstLbl1.setForeground(new java.awt.Color(255, 255, 255));
-        BowlFirstLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BowlFirstLbl1.setText("3. Prop");
+        T1P3Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P3Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P3Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P3Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P3Lbl.setText("3. Prop");
 
-        BatFirstLbl12.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl12.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl12.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl12.setText("15. Fback");
+        T1P15Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P15Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P15Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P15Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P15Lbl.setText("15. Fback");
 
-        BatFirstLbl3.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl3.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl3.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl3.setText("6. Flanker");
+        T1P6Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P6Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P6Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P6Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P6Lbl.setText("6. Flanker");
 
-        BatFirstLbl8.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl8.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl8.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl8.setText("10. Fhalf");
+        T1P10Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P10Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P10Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P10Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P10Lbl.setText("10. Fhalf");
 
-        BatFirstLbl6.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl6.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl6.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl6.setText("9. Shalf");
+        T1P9Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P9Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P9Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P9Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P9Lbl.setText("9. Shalf");
 
-        BatFirstLbl.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl.setText("1. Prop");
+        T1P1Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P1Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P1Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P1Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P1Lbl.setText("1. Prop");
 
-        BatFirstLbl11.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl11.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl11.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl11.setText("14. Winger");
+        T1P14Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P14Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P14Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P14Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P14Lbl.setText("14. Winger");
 
-        BatFirstLbl1.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl1.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl1.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl1.setText("4. Lock");
+        T1P4Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P4Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P4Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P4Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P4Lbl.setText("4. Lock");
 
-        BatFirstLbl2.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl2.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl2.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl2.setText("5. Lock");
+        T1P5Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P5Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P5Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P5Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P5Lbl.setText("5. Lock");
 
-        BatFirstLbl5.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl5.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl5.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl5.setText("8. Eightman");
+        T1P8Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P8Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P8Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P8Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P8Lbl.setText("8. Eightman");
 
-        BatFirstLbl4.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl4.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl4.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl4.setText("7. Flanker");
+        T1P7Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P7Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P7Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P7Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P7Lbl.setText("7. Flanker");
 
-        BatFirstLbl9.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl9.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl9.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl9.setText("12. Center");
+        T1P12Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P12Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P12Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P12Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P12Lbl.setText("12. Center");
 
-        BowlFirstLbl.setBackground(new java.awt.Color(51, 51, 51));
-        BowlFirstLbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BowlFirstLbl.setForeground(new java.awt.Color(255, 255, 255));
-        BowlFirstLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BowlFirstLbl.setText("2. Hooker");
+        T1P2Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T1P2Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T1P2Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T1P2Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T1P2Lbl.setText("2. Hooker");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout Team1TeamPanelLayout = new javax.swing.GroupLayout(Team1TeamPanel);
+        Team1TeamPanel.setLayout(Team1TeamPanelLayout);
+        Team1TeamPanelLayout.setHorizontalGroup(
+            Team1TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Team1TeamPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(BatFirstLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Team1TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Team1TeamPanelLayout.createSequentialGroup()
+                        .addComponent(T1P1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BowlFirstLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(T1P2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BowlFirstLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(T1P3Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Team1TeamPanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(BatFirstLbl7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(Team1TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Team1TeamPanelLayout.createSequentialGroup()
+                                .addComponent(T1P11Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
-                                .addComponent(BatFirstLbl12, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(T1P15Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
-                                .addComponent(BatFirstLbl11, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(BatFirstLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(T1P14Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Team1TeamPanelLayout.createSequentialGroup()
+                                .addComponent(T1P6Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BatFirstLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(T1P8Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BatFirstLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(T1P7Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(Team1TeamPanelLayout.createSequentialGroup()
                         .addGap(69, 69, 69)
-                        .addComponent(BatFirstLbl6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(T1P9Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Team1TeamPanelLayout.createSequentialGroup()
                         .addGap(127, 127, 127)
-                        .addComponent(BatFirstLbl8, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(T1P10Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Team1TeamPanelLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addComponent(BatFirstLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(T1P4Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(BatFirstLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(T1P5Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Team1TeamPanelLayout.createSequentialGroup()
                         .addGap(277, 277, 277)
-                        .addComponent(BatFirstLbl10, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(T1P13Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Team1TeamPanelLayout.createSequentialGroup()
                         .addGap(203, 203, 203)
-                        .addComponent(BatFirstLbl9, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(T1P12Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        Team1TeamPanelLayout.setVerticalGroup(
+            Team1TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Team1TeamPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BatFirstLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BowlFirstLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BowlFirstLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Team1TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T1P1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T1P3Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T1P2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BatFirstLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BatFirstLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Team1TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T1P4Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T1P5Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BatFirstLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BatFirstLbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BatFirstLbl4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Team1TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T1P6Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T1P8Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T1P7Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BatFirstLbl6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T1P9Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BatFirstLbl8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T1P10Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BatFirstLbl9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T1P12Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BatFirstLbl10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T1P13Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BatFirstLbl11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BatFirstLbl12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BatFirstLbl7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Team1TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T1P14Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T1P15Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T1P11Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        StatsTabbedPane.addTab("Team 1 Team", jPanel1);
+        StatsTabbedPane.addTab("Team 1 Team", Team1TeamPanel);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel2.setOpaque(false);
+        Team2TeamPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        Team2TeamPanel.setOpaque(false);
 
-        BatFirstLbl13.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl13.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl13.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl13.setText("11.  Winger");
+        T2P11Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P11Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P11Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P11Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P11Lbl.setText("11.  Winger");
 
-        BatFirstLbl14.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl14.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl14.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl14.setText("13. Center");
+        T2P13Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P13Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P13Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P13Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P13Lbl.setText("13. Center");
 
-        BowlFirstLbl2.setBackground(new java.awt.Color(51, 51, 51));
-        BowlFirstLbl2.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BowlFirstLbl2.setForeground(new java.awt.Color(255, 255, 255));
-        BowlFirstLbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BowlFirstLbl2.setText("3. Prop");
+        T2P3Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P3Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P3Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P3Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P3Lbl.setText("3. Prop");
 
-        BatFirstLbl15.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl15.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl15.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl15.setText("15. Fback");
+        T2P15Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P15Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P15Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P15Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P15Lbl.setText("15. Fback");
 
-        BatFirstLbl16.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl16.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl16.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl16.setText("6. Flanker");
+        T2P6Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P6Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P6Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P6Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P6Lbl.setText("6. Flanker");
 
-        BatFirstLbl17.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl17.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl17.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl17.setText("10. Fhalf");
+        T2P10Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P10Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P10Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P10Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P10Lbl.setText("10. Fhalf");
 
-        BatFirstLbl18.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl18.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl18.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl18.setText("9. Shalf");
+        T2P9Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P9Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P9Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P9Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P9Lbl.setText("9. Shalf");
 
-        BatFirstLbl19.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl19.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl19.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl19.setText("1. Prop");
+        T2P1Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P1Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P1Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P1Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P1Lbl.setText("1. Prop");
 
-        BatFirstLbl20.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl20.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl20.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl20.setText("14. Winger");
+        T2P14Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P14Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P14Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P14Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P14Lbl.setText("14. Winger");
 
-        BatFirstLbl21.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl21.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl21.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl21.setText("4. Lock");
+        T2P4Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P4Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P4Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P4Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P4Lbl.setText("4. Lock");
 
-        BatFirstLbl22.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl22.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl22.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl22.setText("5. Lock");
+        T2P5Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P5Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P5Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P5Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P5Lbl.setText("5. Lock");
 
-        BatFirstLbl23.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl23.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl23.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl23.setText("8. Eightman");
+        T2P8Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P8Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P8Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P8Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P8Lbl.setText("8. Eightman");
 
-        BatFirstLbl24.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl24.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl24.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl24.setText("7. Flanker");
+        T2P1Lb7.setBackground(new java.awt.Color(51, 51, 51));
+        T2P1Lb7.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P1Lb7.setForeground(new java.awt.Color(255, 255, 255));
+        T2P1Lb7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P1Lb7.setText("7. Flanker");
 
-        BatFirstLbl25.setBackground(new java.awt.Color(51, 51, 51));
-        BatFirstLbl25.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BatFirstLbl25.setForeground(new java.awt.Color(255, 255, 255));
-        BatFirstLbl25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BatFirstLbl25.setText("12. Center");
+        T2P12Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P12Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P12Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P12Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P12Lbl.setText("12. Center");
 
-        BowlFirstLbl3.setBackground(new java.awt.Color(51, 51, 51));
-        BowlFirstLbl3.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BowlFirstLbl3.setForeground(new java.awt.Color(255, 255, 255));
-        BowlFirstLbl3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BowlFirstLbl3.setText("2. Hooker");
+        T2P2Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        T2P2Lbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        T2P2Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        T2P2Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        T2P2Lbl.setText("2. Hooker");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout Team2TeamPanelLayout = new javax.swing.GroupLayout(Team2TeamPanel);
+        Team2TeamPanel.setLayout(Team2TeamPanelLayout);
+        Team2TeamPanelLayout.setHorizontalGroup(
+            Team2TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Team2TeamPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(BatFirstLbl19, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Team2TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Team2TeamPanelLayout.createSequentialGroup()
+                        .addComponent(T2P1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BowlFirstLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(T2P2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BowlFirstLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(T2P3Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Team2TeamPanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(BatFirstLbl13, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(Team2TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Team2TeamPanelLayout.createSequentialGroup()
+                                .addComponent(T2P11Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
-                                .addComponent(BatFirstLbl15, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(T2P15Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28)
-                                .addComponent(BatFirstLbl20, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(BatFirstLbl16, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(T2P14Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(Team2TeamPanelLayout.createSequentialGroup()
+                                .addComponent(T2P6Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BatFirstLbl23, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(T2P8Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BatFirstLbl24, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(T2P1Lb7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(Team2TeamPanelLayout.createSequentialGroup()
                         .addGap(69, 69, 69)
-                        .addComponent(BatFirstLbl18, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(T2P9Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Team2TeamPanelLayout.createSequentialGroup()
                         .addGap(127, 127, 127)
-                        .addComponent(BatFirstLbl17, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(T2P10Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Team2TeamPanelLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addComponent(BatFirstLbl21, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(T2P4Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(BatFirstLbl22, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(T2P5Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Team2TeamPanelLayout.createSequentialGroup()
                         .addGap(277, 277, 277)
-                        .addComponent(BatFirstLbl14, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(T2P13Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Team2TeamPanelLayout.createSequentialGroup()
                         .addGap(203, 203, 203)
-                        .addComponent(BatFirstLbl25, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(T2P12Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        Team2TeamPanelLayout.setVerticalGroup(
+            Team2TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Team2TeamPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BatFirstLbl19, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BowlFirstLbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BowlFirstLbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Team2TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T2P1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T2P3Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T2P2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BatFirstLbl21, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BatFirstLbl22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Team2TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T2P4Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T2P5Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BatFirstLbl16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BatFirstLbl23, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BatFirstLbl24, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Team2TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T2P6Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T2P8Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T2P1Lb7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BatFirstLbl18, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T2P9Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BatFirstLbl17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T2P10Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BatFirstLbl25, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T2P12Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BatFirstLbl14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(T2P13Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BatFirstLbl20, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BatFirstLbl15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BatFirstLbl13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(Team2TeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(T2P14Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T2P15Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T2P11Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        StatsTabbedPane.addTab("Team 2 Team", jPanel2);
+        StatsTabbedPane.addTab("Team 2 Team", Team2TeamPanel);
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel3.setOpaque(false);
+        MatchStatsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        MatchStatsPanel.setOpaque(false);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        Team2StatsTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -499,9 +548,9 @@ private final Client CLIENT;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(Team2StatsTbl);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Team1StatsTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -512,53 +561,53 @@ private final Client CLIENT;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Team1StatsTbl);
 
-        LiveScoreKeepingInfoHeaderLbl1.setBackground(new java.awt.Color(51, 51, 51));
-        LiveScoreKeepingInfoHeaderLbl1.setFont(new java.awt.Font("Algerian", 1, 14)); // NOI18N
-        LiveScoreKeepingInfoHeaderLbl1.setForeground(new java.awt.Color(255, 255, 255));
-        LiveScoreKeepingInfoHeaderLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LiveScoreKeepingInfoHeaderLbl1.setText("Team 1");
+        Team1MSLbl.setBackground(new java.awt.Color(51, 51, 51));
+        Team1MSLbl.setFont(new java.awt.Font("Algerian", 1, 14)); // NOI18N
+        Team1MSLbl.setForeground(new java.awt.Color(255, 255, 255));
+        Team1MSLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Team1MSLbl.setText("Team 1");
 
-        LiveScoreKeepingInfoHeaderLbl2.setBackground(new java.awt.Color(51, 51, 51));
-        LiveScoreKeepingInfoHeaderLbl2.setFont(new java.awt.Font("Algerian", 1, 14)); // NOI18N
-        LiveScoreKeepingInfoHeaderLbl2.setForeground(new java.awt.Color(255, 255, 255));
-        LiveScoreKeepingInfoHeaderLbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LiveScoreKeepingInfoHeaderLbl2.setText("Team 2");
+        Team2MSLbl.setBackground(new java.awt.Color(51, 51, 51));
+        Team2MSLbl.setFont(new java.awt.Font("Algerian", 1, 14)); // NOI18N
+        Team2MSLbl.setForeground(new java.awt.Color(255, 255, 255));
+        Team2MSLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Team2MSLbl.setText("Team 2");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout MatchStatsPanelLayout = new javax.swing.GroupLayout(MatchStatsPanel);
+        MatchStatsPanel.setLayout(MatchStatsPanelLayout);
+        MatchStatsPanelLayout.setHorizontalGroup(
+            MatchStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MatchStatsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MatchStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
-                    .addComponent(LiveScoreKeepingInfoHeaderLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LiveScoreKeepingInfoHeaderLbl2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Team1MSLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Team2MSLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        MatchStatsPanelLayout.setVerticalGroup(
+            MatchStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MatchStatsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(LiveScoreKeepingInfoHeaderLbl1)
+                .addComponent(Team1MSLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(LiveScoreKeepingInfoHeaderLbl2)
+                .addComponent(Team2MSLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        StatsTabbedPane.addTab("Match Stats", jPanel3);
+        StatsTabbedPane.addTab("Match Stats", MatchStatsPanel);
 
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel9.setOpaque(false);
+        MatchFactsPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        MatchFactsPanel.setOpaque(false);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        MatchFactsTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -569,26 +618,26 @@ private final Client CLIENT;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(MatchFactsTbl);
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+        javax.swing.GroupLayout MatchFactsPanelLayout = new javax.swing.GroupLayout(MatchFactsPanel);
+        MatchFactsPanel.setLayout(MatchFactsPanelLayout);
+        MatchFactsPanelLayout.setHorizontalGroup(
+            MatchFactsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MatchFactsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
+        MatchFactsPanelLayout.setVerticalGroup(
+            MatchFactsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MatchFactsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        StatsTabbedPane.addTab("Match Facts", jPanel9);
+        StatsTabbedPane.addTab("Match Facts", MatchFactsPanel);
 
         AccountNameLbl.setForeground(new java.awt.Color(255, 255, 255));
         AccountNameLbl.setText("AccountName");
@@ -597,44 +646,44 @@ private final Client CLIENT;
         AccuPicksHeaderLbl1.setForeground(new java.awt.Color(255, 255, 255));
         AccuPicksHeaderLbl1.setText("AccuPicks");
 
-        ScoreTimePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        ScoreTimePanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         ScoreTimePanel.setOpaque(false);
 
-        CricketHeaderLbl3.setBackground(new java.awt.Color(51, 51, 51));
-        CricketHeaderLbl3.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
-        CricketHeaderLbl3.setForeground(new java.awt.Color(255, 255, 255));
-        CricketHeaderLbl3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CricketHeaderLbl3.setText("0");
+        Team2ScoreLbl.setBackground(new java.awt.Color(51, 51, 51));
+        Team2ScoreLbl.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        Team2ScoreLbl.setForeground(new java.awt.Color(255, 255, 255));
+        Team2ScoreLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Team2ScoreLbl.setText("0");
 
-        CricketHeaderLbl2.setBackground(new java.awt.Color(51, 51, 51));
-        CricketHeaderLbl2.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
-        CricketHeaderLbl2.setForeground(new java.awt.Color(255, 255, 255));
-        CricketHeaderLbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CricketHeaderLbl2.setText("Team 2");
+        Team2Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        Team2Lbl.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        Team2Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        Team2Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Team2Lbl.setText("Team 2");
 
-        CricketHeaderLbl4.setBackground(new java.awt.Color(51, 51, 51));
-        CricketHeaderLbl4.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
-        CricketHeaderLbl4.setForeground(new java.awt.Color(255, 255, 255));
-        CricketHeaderLbl4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CricketHeaderLbl4.setText("0");
+        Team1ScoreLbl.setBackground(new java.awt.Color(51, 51, 51));
+        Team1ScoreLbl.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        Team1ScoreLbl.setForeground(new java.awt.Color(255, 255, 255));
+        Team1ScoreLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Team1ScoreLbl.setText("0");
 
-        CricketHeaderLbl1.setBackground(new java.awt.Color(51, 51, 51));
-        CricketHeaderLbl1.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
-        CricketHeaderLbl1.setForeground(new java.awt.Color(255, 255, 255));
-        CricketHeaderLbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CricketHeaderLbl1.setText("Team 1");
+        Team1Lbl.setBackground(new java.awt.Color(51, 51, 51));
+        Team1Lbl.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        Team1Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        Team1Lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Team1Lbl.setText("Team 1");
 
-        CricketHeaderLbl5.setBackground(new java.awt.Color(51, 51, 51));
-        CricketHeaderLbl5.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
-        CricketHeaderLbl5.setForeground(new java.awt.Color(255, 255, 255));
-        CricketHeaderLbl5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CricketHeaderLbl5.setText("40:00");
+        TimeLbl.setBackground(new java.awt.Color(51, 51, 51));
+        TimeLbl.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        TimeLbl.setForeground(new java.awt.Color(255, 255, 255));
+        TimeLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TimeLbl.setText("40:00");
 
-        CricketHeaderLbl6.setBackground(new java.awt.Color(51, 51, 51));
-        CricketHeaderLbl6.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
-        CricketHeaderLbl6.setForeground(new java.awt.Color(255, 255, 255));
-        CricketHeaderLbl6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CricketHeaderLbl6.setText("Time:");
+        TimeHeaderLbl.setBackground(new java.awt.Color(51, 51, 51));
+        TimeHeaderLbl.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        TimeHeaderLbl.setForeground(new java.awt.Color(255, 255, 255));
+        TimeHeaderLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TimeHeaderLbl.setText("Time:");
 
         javax.swing.GroupLayout ScoreTimePanelLayout = new javax.swing.GroupLayout(ScoreTimePanel);
         ScoreTimePanel.setLayout(ScoreTimePanelLayout);
@@ -643,14 +692,14 @@ private final Client CLIENT;
             .addGroup(ScoreTimePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ScoreTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CricketHeaderLbl6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CricketHeaderLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CricketHeaderLbl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(TimeHeaderLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Team1Lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Team1ScoreLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(42, 42, 42)
                 .addGroup(ScoreTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CricketHeaderLbl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CricketHeaderLbl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CricketHeaderLbl5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Team2ScoreLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Team2Lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TimeLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         ScoreTimePanelLayout.setVerticalGroup(
@@ -658,34 +707,39 @@ private final Client CLIENT;
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ScoreTimePanelLayout.createSequentialGroup()
                 .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(ScoreTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CricketHeaderLbl5)
-                    .addComponent(CricketHeaderLbl6))
+                    .addComponent(TimeLbl)
+                    .addComponent(TimeHeaderLbl))
                 .addGap(18, 18, 18)
                 .addGroup(ScoreTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CricketHeaderLbl1)
-                    .addComponent(CricketHeaderLbl2))
+                    .addComponent(Team1Lbl)
+                    .addComponent(Team2Lbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ScoreTimePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CricketHeaderLbl3)
-                    .addComponent(CricketHeaderLbl4))
+                    .addComponent(Team2ScoreLbl)
+                    .addComponent(Team1ScoreLbl))
                 .addContainerGap())
         );
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jPanel5.setOpaque(false);
 
-        BackBtn3.setBackground(new java.awt.Color(51, 51, 51));
-        BackBtn3.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BackBtn3.setText("Reset Time");
-        BackBtn3.addActionListener(new java.awt.event.ActionListener() {
+        ResetTimeBtn.setBackground(new java.awt.Color(51, 51, 51));
+        ResetTimeBtn.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        ResetTimeBtn.setText("Reset Time");
+        ResetTimeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackBtn3ActionPerformed(evt);
+                ResetTimeBtnActionPerformed(evt);
             }
         });
 
-        jToggleButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jToggleButton1.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        jToggleButton1.setText("Start/Pause Time");
+        StartPauseBtn.setBackground(new java.awt.Color(51, 51, 51));
+        StartPauseBtn.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        StartPauseBtn.setText("Start/Pause Time");
+        StartPauseBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StartPauseBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -694,38 +748,38 @@ private final Client CLIENT;
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BackBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(StartPauseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ResetTimeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(StartPauseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(BackBtn3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ResetTimeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jPanel6.setOpaque(false);
 
-        BackBtn1.setBackground(new java.awt.Color(51, 51, 51));
-        BackBtn1.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BackBtn1.setText("Try");
-        BackBtn1.addActionListener(new java.awt.event.ActionListener() {
+        TryBtn.setBackground(new java.awt.Color(51, 51, 51));
+        TryBtn.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        TryBtn.setText("Try");
+        TryBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackBtn1ActionPerformed(evt);
+                TryBtnActionPerformed(evt);
             }
         });
 
-        BackBtn2.setBackground(new java.awt.Color(51, 51, 51));
-        BackBtn2.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BackBtn2.setText("Penalty");
-        BackBtn2.addActionListener(new java.awt.event.ActionListener() {
+        PenaltyBtn.setBackground(new java.awt.Color(51, 51, 51));
+        PenaltyBtn.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        PenaltyBtn.setText("Penalty");
+        PenaltyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackBtn2ActionPerformed(evt);
+                PenaltyBtnActionPerformed(evt);
             }
         });
 
@@ -736,38 +790,38 @@ private final Client CLIENT;
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BackBtn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BackBtn2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TryBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PenaltyBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(BackBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TryBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BackBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PenaltyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
         jPanel10.setOpaque(false);
 
-        BackBtn8.setBackground(new java.awt.Color(51, 51, 51));
-        BackBtn8.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BackBtn8.setText("Knock On");
-        BackBtn8.addActionListener(new java.awt.event.ActionListener() {
+        KnockOnBtn.setBackground(new java.awt.Color(51, 51, 51));
+        KnockOnBtn.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        KnockOnBtn.setText("Knock On");
+        KnockOnBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackBtn8ActionPerformed(evt);
+                KnockOnBtnActionPerformed(evt);
             }
         });
 
-        BackBtn9.setBackground(new java.awt.Color(51, 51, 51));
-        BackBtn9.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
-        BackBtn9.setText("Line Out");
-        BackBtn9.addActionListener(new java.awt.event.ActionListener() {
+        LineOutBtn.setBackground(new java.awt.Color(51, 51, 51));
+        LineOutBtn.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        LineOutBtn.setText("Line Out");
+        LineOutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackBtn9ActionPerformed(evt);
+                LineOutBtnActionPerformed(evt);
             }
         });
 
@@ -778,17 +832,17 @@ private final Client CLIENT;
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BackBtn8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BackBtn9, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(KnockOnBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LineOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(BackBtn8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(KnockOnBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BackBtn9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LineOutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -866,8 +920,8 @@ private final Client CLIENT;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(MainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -878,25 +932,39 @@ private final Client CLIENT;
         dispose();
     }//GEN-LAST:event_BackBtnActionPerformed
 
-    private void BackBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BackBtn1ActionPerformed
+    private void TryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TryBtnActionPerformed
+        RugbyLiveScoreKeepingGameDataPlayer dialog = new RugbyLiveScoreKeepingGameDataPlayer(new javax.swing.JFrame(), true, "Choose player who scored the try");
+        dialog.setVisible(true);
+        TryScored();
+    }//GEN-LAST:event_TryBtnActionPerformed
 
-    private void BackBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtn2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BackBtn2ActionPerformed
+    private void PenaltyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PenaltyBtnActionPerformed
+        RugbyLiveScoreKeepingGameDataPlayer dialog = new RugbyLiveScoreKeepingGameDataPlayer(new javax.swing.JFrame(), true, "Choose player who committed the penalty");
+        dialog.setVisible(true);
+        PenaltyCommited();
+    }//GEN-LAST:event_PenaltyBtnActionPerformed
 
-    private void BackBtn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtn3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BackBtn3ActionPerformed
+    private void ResetTimeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetTimeBtnActionPerformed
+        Minleft = Integer.parseInt(JOptionPane.showInputDialog("Min?"));
+        Secleft = 59;
+        TimeLbl.setText(String.format("%02d", Minleft) + ":" + String.format("%02d", Secleft)); 
+    }//GEN-LAST:event_ResetTimeBtnActionPerformed
 
-    private void BackBtn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtn8ActionPerformed
+    private void KnockOnBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KnockOnBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BackBtn8ActionPerformed
+    }//GEN-LAST:event_KnockOnBtnActionPerformed
 
-    private void BackBtn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtn9ActionPerformed
+    private void LineOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LineOutBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BackBtn9ActionPerformed
+    }//GEN-LAST:event_LineOutBtnActionPerformed
+
+    private void StartPauseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartPauseBtnActionPerformed
+       if(StartPauseBtn.isSelected()){
+            t.start();
+        }else{
+            t.stop();
+        }
+    }//GEN-LAST:event_StartPauseBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -937,73 +1005,67 @@ private final Client CLIENT;
     private javax.swing.JLabel AccountNameLbl;
     private javax.swing.JLabel AccuPicksHeaderLbl1;
     private javax.swing.JButton BackBtn;
-    private javax.swing.JButton BackBtn1;
-    private javax.swing.JButton BackBtn2;
-    private javax.swing.JButton BackBtn3;
-    private javax.swing.JButton BackBtn4;
-    private javax.swing.JButton BackBtn5;
-    private javax.swing.JButton BackBtn6;
-    private javax.swing.JButton BackBtn7;
-    private javax.swing.JButton BackBtn8;
-    private javax.swing.JButton BackBtn9;
-    private javax.swing.JLabel BatFirstLbl;
-    private javax.swing.JLabel BatFirstLbl1;
-    private javax.swing.JLabel BatFirstLbl10;
-    private javax.swing.JLabel BatFirstLbl11;
-    private javax.swing.JLabel BatFirstLbl12;
-    private javax.swing.JLabel BatFirstLbl13;
-    private javax.swing.JLabel BatFirstLbl14;
-    private javax.swing.JLabel BatFirstLbl15;
-    private javax.swing.JLabel BatFirstLbl16;
-    private javax.swing.JLabel BatFirstLbl17;
-    private javax.swing.JLabel BatFirstLbl18;
-    private javax.swing.JLabel BatFirstLbl19;
-    private javax.swing.JLabel BatFirstLbl2;
-    private javax.swing.JLabel BatFirstLbl20;
-    private javax.swing.JLabel BatFirstLbl21;
-    private javax.swing.JLabel BatFirstLbl22;
-    private javax.swing.JLabel BatFirstLbl23;
-    private javax.swing.JLabel BatFirstLbl24;
-    private javax.swing.JLabel BatFirstLbl25;
-    private javax.swing.JLabel BatFirstLbl3;
-    private javax.swing.JLabel BatFirstLbl4;
-    private javax.swing.JLabel BatFirstLbl5;
-    private javax.swing.JLabel BatFirstLbl6;
-    private javax.swing.JLabel BatFirstLbl7;
-    private javax.swing.JLabel BatFirstLbl8;
-    private javax.swing.JLabel BatFirstLbl9;
-    private javax.swing.JLabel BowlFirstLbl;
-    private javax.swing.JLabel BowlFirstLbl1;
-    private javax.swing.JLabel BowlFirstLbl2;
-    private javax.swing.JLabel BowlFirstLbl3;
-    private javax.swing.JLabel CricketHeaderLbl1;
-    private javax.swing.JLabel CricketHeaderLbl2;
-    private javax.swing.JLabel CricketHeaderLbl3;
-    private javax.swing.JLabel CricketHeaderLbl4;
-    private javax.swing.JLabel CricketHeaderLbl5;
-    private javax.swing.JLabel CricketHeaderLbl6;
+    private javax.swing.JButton KnockOnBtn;
+    private javax.swing.JButton LineOutBtn;
     private javax.swing.JLabel LiveScoreKeepingInfoHeaderLbl;
-    private javax.swing.JLabel LiveScoreKeepingInfoHeaderLbl1;
-    private javax.swing.JLabel LiveScoreKeepingInfoHeaderLbl2;
     private javax.swing.JPanel MainPanel;
+    private javax.swing.JPanel MatchFactsPanel;
+    private javax.swing.JTable MatchFactsTbl;
+    private javax.swing.JPanel MatchStatsPanel;
+    private javax.swing.JButton PenaltyBtn;
+    private javax.swing.JButton ResetTimeBtn;
     private javax.swing.JLabel RugbyHeaderLbl;
     private javax.swing.JPanel ScoreTimePanel;
+    private javax.swing.JToggleButton StartPauseBtn;
     private javax.swing.JTabbedPane StatsTabbedPane;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel T1P10Lbl;
+    private javax.swing.JLabel T1P11Lbl;
+    private javax.swing.JLabel T1P12Lbl;
+    private javax.swing.JLabel T1P13Lbl;
+    private javax.swing.JLabel T1P14Lbl;
+    private javax.swing.JLabel T1P15Lbl;
+    private javax.swing.JLabel T1P1Lbl;
+    private javax.swing.JLabel T1P2Lbl;
+    private javax.swing.JLabel T1P3Lbl;
+    private javax.swing.JLabel T1P4Lbl;
+    private javax.swing.JLabel T1P5Lbl;
+    private javax.swing.JLabel T1P6Lbl;
+    private javax.swing.JLabel T1P7Lbl;
+    private javax.swing.JLabel T1P8Lbl;
+    private javax.swing.JLabel T1P9Lbl;
+    private javax.swing.JLabel T2P10Lbl;
+    private javax.swing.JLabel T2P11Lbl;
+    private javax.swing.JLabel T2P12Lbl;
+    private javax.swing.JLabel T2P13Lbl;
+    private javax.swing.JLabel T2P14Lbl;
+    private javax.swing.JLabel T2P15Lbl;
+    private javax.swing.JLabel T2P1Lb7;
+    private javax.swing.JLabel T2P1Lbl;
+    private javax.swing.JLabel T2P2Lbl;
+    private javax.swing.JLabel T2P3Lbl;
+    private javax.swing.JLabel T2P4Lbl;
+    private javax.swing.JLabel T2P5Lbl;
+    private javax.swing.JLabel T2P6Lbl;
+    private javax.swing.JLabel T2P8Lbl;
+    private javax.swing.JLabel T2P9Lbl;
+    private javax.swing.JLabel Team1Lbl;
+    private javax.swing.JLabel Team1MSLbl;
+    private javax.swing.JLabel Team1ScoreLbl;
+    private javax.swing.JTable Team1StatsTbl;
+    private javax.swing.JPanel Team1TeamPanel;
+    private javax.swing.JLabel Team2Lbl;
+    private javax.swing.JLabel Team2MSLbl;
+    private javax.swing.JLabel Team2ScoreLbl;
+    private javax.swing.JTable Team2StatsTbl;
+    private javax.swing.JPanel Team2TeamPanel;
+    private javax.swing.JLabel TimeHeaderLbl;
+    private javax.swing.JLabel TimeLbl;
+    private javax.swing.JButton TryBtn;
     private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

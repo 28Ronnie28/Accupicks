@@ -170,7 +170,7 @@ JLabel backgroundLbl = new JLabel();
         Flanker6HeaderLbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
         Flanker6HeaderLbl.setForeground(new java.awt.Color(255, 255, 255));
         Flanker6HeaderLbl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Flanker6HeaderLbl.setText("6. Flanker:");
+        Flanker6HeaderLbl.setText("6. OpenFlanker:");
 
         Flanker6Cmb.setBackground(new java.awt.Color(51, 51, 51));
         Flanker6Cmb.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
@@ -184,7 +184,7 @@ JLabel backgroundLbl = new JLabel();
         Flanker7HeaderLbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
         Flanker7HeaderLbl.setForeground(new java.awt.Color(255, 255, 255));
         Flanker7HeaderLbl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        Flanker7HeaderLbl.setText("7. openSideFlanker");
+        Flanker7HeaderLbl.setText("7. BlindFlanker");
 
         Eigthman8Cmb.setBackground(new java.awt.Color(51, 51, 51));
         Eigthman8Cmb.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
@@ -372,7 +372,7 @@ JLabel backgroundLbl = new JLabel();
                                     .addComponent(SetPositionsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGap(18, 18, 18)
                                     .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(12, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

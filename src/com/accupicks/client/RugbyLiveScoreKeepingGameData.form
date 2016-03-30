@@ -35,8 +35,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="MainPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <Component id="MainPanel" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -181,11 +181,13 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel1">
+            <Container class="javax.swing.JPanel" name="Team1TeamPanel">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder thickness="3"/>
+                    <LineBorder thickness="3">
+                      <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                    </LineBorder>
                   </Border>
                 </Property>
                 <Property name="opaque" type="boolean" value="false"/>
@@ -205,52 +207,52 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="BatFirstLbl" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T1P1Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="BowlFirstLbl" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T1P2Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="BowlFirstLbl1" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T1P3Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="BatFirstLbl7" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T1P11Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="BatFirstLbl12" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T1P15Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="BatFirstLbl11" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T1P14Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="BatFirstLbl3" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T1P6Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="BatFirstLbl5" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T1P8Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="BatFirstLbl4" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T1P7Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl6" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T1P9Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl8" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T1P10Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl1" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T1P4Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl2" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T1P5Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl10" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T1P13Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl9" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T1P12Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -262,34 +264,34 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BatFirstLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BowlFirstLbl1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BowlFirstLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P1Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P3Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P2Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BatFirstLbl1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BatFirstLbl2" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P4Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P5Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BatFirstLbl3" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BatFirstLbl5" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BatFirstLbl4" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P6Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P8Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P7Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BatFirstLbl6" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="T1P9Lbl" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BatFirstLbl8" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="T1P10Lbl" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BatFirstLbl9" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="T1P12Lbl" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BatFirstLbl10" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="T1P13Lbl" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BatFirstLbl11" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BatFirstLbl12" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BatFirstLbl7" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P14Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P15Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T1P11Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -297,7 +299,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl7">
+                <Component class="javax.swing.JLabel" name="T1P11Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -312,7 +314,7 @@
                     <Property name="text" type="java.lang.String" value="11.  Winger"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl10">
+                <Component class="javax.swing.JLabel" name="T1P13Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -327,7 +329,7 @@
                     <Property name="text" type="java.lang.String" value="13. Center"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BowlFirstLbl1">
+                <Component class="javax.swing.JLabel" name="T1P3Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -342,7 +344,7 @@
                     <Property name="text" type="java.lang.String" value="3. Prop"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl12">
+                <Component class="javax.swing.JLabel" name="T1P15Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -357,7 +359,7 @@
                     <Property name="text" type="java.lang.String" value="15. Fback"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl3">
+                <Component class="javax.swing.JLabel" name="T1P6Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -372,7 +374,7 @@
                     <Property name="text" type="java.lang.String" value="6. Flanker"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl8">
+                <Component class="javax.swing.JLabel" name="T1P10Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -387,7 +389,7 @@
                     <Property name="text" type="java.lang.String" value="10. Fhalf"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl6">
+                <Component class="javax.swing.JLabel" name="T1P9Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -402,7 +404,7 @@
                     <Property name="text" type="java.lang.String" value="9. Shalf"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl">
+                <Component class="javax.swing.JLabel" name="T1P1Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -417,7 +419,7 @@
                     <Property name="text" type="java.lang.String" value="1. Prop"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl11">
+                <Component class="javax.swing.JLabel" name="T1P14Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -432,7 +434,7 @@
                     <Property name="text" type="java.lang.String" value="14. Winger"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl1">
+                <Component class="javax.swing.JLabel" name="T1P4Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -447,7 +449,7 @@
                     <Property name="text" type="java.lang.String" value="4. Lock"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl2">
+                <Component class="javax.swing.JLabel" name="T1P5Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -462,7 +464,7 @@
                     <Property name="text" type="java.lang.String" value="5. Lock"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl5">
+                <Component class="javax.swing.JLabel" name="T1P8Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -477,7 +479,7 @@
                     <Property name="text" type="java.lang.String" value="8. Eightman"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl4">
+                <Component class="javax.swing.JLabel" name="T1P7Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -492,7 +494,7 @@
                     <Property name="text" type="java.lang.String" value="7. Flanker"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl9">
+                <Component class="javax.swing.JLabel" name="T1P12Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -507,7 +509,7 @@
                     <Property name="text" type="java.lang.String" value="12. Center"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BowlFirstLbl">
+                <Component class="javax.swing.JLabel" name="T1P2Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -524,11 +526,13 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel2">
+            <Container class="javax.swing.JPanel" name="Team2TeamPanel">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder thickness="3"/>
+                    <LineBorder thickness="3">
+                      <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                    </LineBorder>
                   </Border>
                 </Property>
                 <Property name="opaque" type="boolean" value="false"/>
@@ -548,52 +552,52 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="BatFirstLbl19" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T2P1Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="BowlFirstLbl3" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T2P2Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="BowlFirstLbl2" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T2P3Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="BatFirstLbl13" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T2P11Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="BatFirstLbl15" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T2P15Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                          <Component id="BatFirstLbl20" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T2P14Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="BatFirstLbl16" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T2P6Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="BatFirstLbl23" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T2P8Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="BatFirstLbl24" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="T2P1Lb7" min="-2" pref="130" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl18" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T2P9Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl17" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T2P10Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl21" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T2P4Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl22" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T2P5Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl14" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T2P13Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
-                                  <Component id="BatFirstLbl25" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="T2P12Lbl" min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -605,34 +609,34 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BatFirstLbl19" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BowlFirstLbl2" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BowlFirstLbl3" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P1Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P3Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P2Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BatFirstLbl21" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BatFirstLbl22" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P4Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P5Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BatFirstLbl16" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BatFirstLbl23" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BatFirstLbl24" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P6Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P8Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P1Lb7" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BatFirstLbl18" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="T2P9Lbl" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BatFirstLbl17" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="T2P10Lbl" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BatFirstLbl25" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="T2P12Lbl" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="BatFirstLbl14" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="T2P13Lbl" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="BatFirstLbl20" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BatFirstLbl15" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="BatFirstLbl13" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P14Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P15Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="T2P11Lbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -640,7 +644,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl13">
+                <Component class="javax.swing.JLabel" name="T2P11Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -655,7 +659,7 @@
                     <Property name="text" type="java.lang.String" value="11.  Winger"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl14">
+                <Component class="javax.swing.JLabel" name="T2P13Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -670,7 +674,7 @@
                     <Property name="text" type="java.lang.String" value="13. Center"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BowlFirstLbl2">
+                <Component class="javax.swing.JLabel" name="T2P3Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -685,7 +689,7 @@
                     <Property name="text" type="java.lang.String" value="3. Prop"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl15">
+                <Component class="javax.swing.JLabel" name="T2P15Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -700,7 +704,7 @@
                     <Property name="text" type="java.lang.String" value="15. Fback"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl16">
+                <Component class="javax.swing.JLabel" name="T2P6Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -715,7 +719,7 @@
                     <Property name="text" type="java.lang.String" value="6. Flanker"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl17">
+                <Component class="javax.swing.JLabel" name="T2P10Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -730,7 +734,7 @@
                     <Property name="text" type="java.lang.String" value="10. Fhalf"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl18">
+                <Component class="javax.swing.JLabel" name="T2P9Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -745,7 +749,7 @@
                     <Property name="text" type="java.lang.String" value="9. Shalf"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl19">
+                <Component class="javax.swing.JLabel" name="T2P1Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -760,7 +764,7 @@
                     <Property name="text" type="java.lang.String" value="1. Prop"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl20">
+                <Component class="javax.swing.JLabel" name="T2P14Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -775,7 +779,7 @@
                     <Property name="text" type="java.lang.String" value="14. Winger"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl21">
+                <Component class="javax.swing.JLabel" name="T2P4Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -790,7 +794,7 @@
                     <Property name="text" type="java.lang.String" value="4. Lock"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl22">
+                <Component class="javax.swing.JLabel" name="T2P5Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -805,7 +809,7 @@
                     <Property name="text" type="java.lang.String" value="5. Lock"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl23">
+                <Component class="javax.swing.JLabel" name="T2P8Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -820,7 +824,7 @@
                     <Property name="text" type="java.lang.String" value="8. Eightman"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl24">
+                <Component class="javax.swing.JLabel" name="T2P1Lb7">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -835,7 +839,7 @@
                     <Property name="text" type="java.lang.String" value="7. Flanker"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BatFirstLbl25">
+                <Component class="javax.swing.JLabel" name="T2P12Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -850,7 +854,7 @@
                     <Property name="text" type="java.lang.String" value="12. Center"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="BowlFirstLbl3">
+                <Component class="javax.swing.JLabel" name="T2P2Lbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -867,11 +871,13 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel3">
+            <Container class="javax.swing.JPanel" name="MatchStatsPanel">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder thickness="3"/>
+                    <LineBorder thickness="3">
+                      <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                    </LineBorder>
                   </Border>
                 </Property>
                 <Property name="opaque" type="boolean" value="false"/>
@@ -892,8 +898,8 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane2" pref="462" max="32767" attributes="0"/>
                               <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="LiveScoreKeepingInfoHeaderLbl1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="LiveScoreKeepingInfoHeaderLbl2" alignment="1" max="32767" attributes="0"/>
+                              <Component id="Team1MSLbl" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Team2MSLbl" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -903,11 +909,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="LiveScoreKeepingInfoHeaderLbl1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Team1MSLbl" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="LiveScoreKeepingInfoHeaderLbl2" min="-2" max="-2" attributes="0"/>
+                          <Component id="Team2MSLbl" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="11" max="32767" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -923,7 +929,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable2">
+                    <Component class="javax.swing.JTable" name="Team2StatsTbl">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
@@ -944,7 +950,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable1">
+                    <Component class="javax.swing.JTable" name="Team1StatsTbl">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
@@ -958,7 +964,7 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JLabel" name="LiveScoreKeepingInfoHeaderLbl1">
+                <Component class="javax.swing.JLabel" name="Team1MSLbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -973,7 +979,7 @@
                     <Property name="text" type="java.lang.String" value="Team 1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="LiveScoreKeepingInfoHeaderLbl2">
+                <Component class="javax.swing.JLabel" name="Team2MSLbl">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
@@ -990,11 +996,13 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel9">
+            <Container class="javax.swing.JPanel" name="MatchFactsPanel">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder thickness="3"/>
+                    <LineBorder thickness="3">
+                      <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                    </LineBorder>
                   </Border>
                 </Property>
                 <Property name="opaque" type="boolean" value="false"/>
@@ -1035,7 +1043,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jTable4">
+                    <Component class="javax.swing.JTable" name="MatchFactsTbl">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
@@ -1076,7 +1084,9 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder thickness="3"/>
+                <LineBorder thickness="3">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </LineBorder>
               </Border>
             </Property>
             <Property name="opaque" type="boolean" value="false"/>
@@ -1088,15 +1098,15 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="CricketHeaderLbl6" max="32767" attributes="0"/>
-                          <Component id="CricketHeaderLbl1" max="32767" attributes="0"/>
-                          <Component id="CricketHeaderLbl4" max="32767" attributes="0"/>
+                          <Component id="TimeHeaderLbl" max="32767" attributes="0"/>
+                          <Component id="Team1Lbl" max="32767" attributes="0"/>
+                          <Component id="Team1ScoreLbl" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="CricketHeaderLbl3" max="32767" attributes="0"/>
-                          <Component id="CricketHeaderLbl2" max="32767" attributes="0"/>
-                          <Component id="CricketHeaderLbl5" max="32767" attributes="0"/>
+                          <Component id="Team2ScoreLbl" max="32767" attributes="0"/>
+                          <Component id="Team2Lbl" max="32767" attributes="0"/>
+                          <Component id="TimeLbl" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1107,18 +1117,18 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="23" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CricketHeaderLbl5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CricketHeaderLbl6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TimeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TimeHeaderLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CricketHeaderLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CricketHeaderLbl2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Team1Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Team2Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CricketHeaderLbl3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CricketHeaderLbl4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Team2ScoreLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Team1ScoreLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1126,7 +1136,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="CricketHeaderLbl3">
+            <Component class="javax.swing.JLabel" name="Team2ScoreLbl">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1141,7 +1151,7 @@
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="CricketHeaderLbl2">
+            <Component class="javax.swing.JLabel" name="Team2Lbl">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1156,7 +1166,7 @@
                 <Property name="text" type="java.lang.String" value="Team 2"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="CricketHeaderLbl4">
+            <Component class="javax.swing.JLabel" name="Team1ScoreLbl">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1171,7 +1181,7 @@
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="CricketHeaderLbl1">
+            <Component class="javax.swing.JLabel" name="Team1Lbl">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1186,7 +1196,7 @@
                 <Property name="text" type="java.lang.String" value="Team 1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="CricketHeaderLbl5">
+            <Component class="javax.swing.JLabel" name="TimeLbl">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1201,7 +1211,7 @@
                 <Property name="text" type="java.lang.String" value="40:00"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="CricketHeaderLbl6">
+            <Component class="javax.swing.JLabel" name="TimeHeaderLbl">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1222,7 +1232,9 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder thickness="3"/>
+                <LineBorder thickness="3">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </LineBorder>
               </Border>
             </Property>
             <Property name="opaque" type="boolean" value="false"/>
@@ -1234,8 +1246,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jToggleButton1" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
-                          <Component id="BackBtn3" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
+                          <Component id="StartPauseBtn" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
+                          <Component id="ResetTimeBtn" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1245,16 +1257,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton1" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="StartPauseBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace pref="18" max="32767" attributes="0"/>
-                      <Component id="BackBtn3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="ResetTimeBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="BackBtn3">
+            <Component class="javax.swing.JButton" name="ResetTimeBtn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1265,10 +1277,10 @@
                 <Property name="text" type="java.lang.String" value="Reset Time"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackBtn3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResetTimeBtnActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+            <Component class="javax.swing.JToggleButton" name="StartPauseBtn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1278,6 +1290,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Start/Pause Time"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="StartPauseBtnActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -1285,7 +1300,9 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder thickness="3"/>
+                <LineBorder thickness="3">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </LineBorder>
               </Border>
             </Property>
             <Property name="opaque" type="boolean" value="false"/>
@@ -1297,8 +1314,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="BackBtn1" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
-                          <Component id="BackBtn2" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
+                          <Component id="TryBtn" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
+                          <Component id="PenaltyBtn" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1308,16 +1325,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BackBtn1" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="TryBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="BackBtn2" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="PenaltyBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="BackBtn1">
+            <Component class="javax.swing.JButton" name="TryBtn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1328,10 +1345,10 @@
                 <Property name="text" type="java.lang.String" value="Try"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackBtn1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TryBtnActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BackBtn2">
+            <Component class="javax.swing.JButton" name="PenaltyBtn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1342,7 +1359,7 @@
                 <Property name="text" type="java.lang.String" value="Penalty"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackBtn2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PenaltyBtnActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -1351,7 +1368,9 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder thickness="3"/>
+                <LineBorder thickness="3">
+                  <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+                </LineBorder>
               </Border>
             </Property>
             <Property name="opaque" type="boolean" value="false"/>
@@ -1363,8 +1382,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="BackBtn8" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
-                          <Component id="BackBtn9" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
+                          <Component id="KnockOnBtn" alignment="1" min="-2" pref="290" max="-2" attributes="0"/>
+                          <Component id="LineOutBtn" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1374,16 +1393,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="BackBtn8" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="KnockOnBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="BackBtn9" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="LineOutBtn" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="BackBtn8">
+            <Component class="javax.swing.JButton" name="KnockOnBtn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1394,10 +1413,10 @@
                 <Property name="text" type="java.lang.String" value="Knock On"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackBtn8ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KnockOnBtnActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="BackBtn9">
+            <Component class="javax.swing.JButton" name="LineOutBtn">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -1408,7 +1427,7 @@
                 <Property name="text" type="java.lang.String" value="Line Out"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackBtn9ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LineOutBtnActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

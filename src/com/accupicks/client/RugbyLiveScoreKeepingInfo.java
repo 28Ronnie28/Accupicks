@@ -84,7 +84,7 @@ private final Client CLIENT;
         SevensOrFullHeaderLbl.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
         SevensOrFullHeaderLbl.setForeground(new java.awt.Color(255, 255, 255));
         SevensOrFullHeaderLbl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        SevensOrFullHeaderLbl.setText("7's or Full 15:");
+        SevensOrFullHeaderLbl.setText("rbsbfbdfbdfgbf");
 
         HalfLengthCmb.setBackground(new java.awt.Color(51, 51, 51));
         HalfLengthCmb.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
@@ -94,7 +94,6 @@ private final Client CLIENT;
         SevensFullCmb.setBackground(new java.awt.Color(51, 51, 51));
         SevensFullCmb.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
         SevensFullCmb.setForeground(new java.awt.Color(255, 255, 255));
-        SevensFullCmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7'S", "Full 15" }));
 
         LiveScoreKeepingInfoHeaderLbl.setBackground(new java.awt.Color(51, 51, 51));
         LiveScoreKeepingInfoHeaderLbl.setFont(new java.awt.Font("Algerian", 1, 14)); // NOI18N

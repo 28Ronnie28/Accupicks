@@ -647,7 +647,8 @@ private final Client CLIENT;
     }//GEN-LAST:event_CricketGoToMatchBtnActionPerformed
 
     private void RugbyGoToMatchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RugbyGoToMatchBtnActionPerformed
-        // TODO add your handling code here:
+        new RugbyLiveScoreKeepingGameData(CLIENT).setVisible(true);
+        dispose();
     }//GEN-LAST:event_RugbyGoToMatchBtnActionPerformed
 
     private void SoccerGoToMatchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SoccerGoToMatchBtnActionPerformed
