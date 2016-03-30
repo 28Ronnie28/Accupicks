@@ -5,13 +5,24 @@
 package com.accupicks.client;
 
 import javax.swing.ImageIcon;
+import com.shared.Client;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
 
 public class CreateTournament extends javax.swing.JFrame {
+JLabel backgroundLbl = new JLabel();    
+private final Client CLIENT;
 
-    public CreateTournament() {
+    public CreateTournament(Client client) {
+        CLIENT = client;
         initComponents();
         setLocationRelativeTo(null);
         OptimizedForCmb.setSelectedIndex(0);
+        AccountNameLbl.setText(CLIENT.getName());
+        
+        setLayout(new BorderLayout());
+        add(backgroundLbl);
+        backgroundLbl.setIcon(new ImageIcon(new ImageIcon(AdminHome.class.getResource("/resources/SoccerBackground.jpg")).getImage().getScaledInstance(1366, 768, java.awt.Image.SCALE_SMOOTH)));
     }
 
     public void setBackground(String imageName) {
@@ -22,45 +33,45 @@ public class CreateTournament extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        CreateTournament = new javax.swing.JButton();
+        MainPanel = new javax.swing.JPanel();
+        CreateTournamentHeaderLbl = new javax.swing.JLabel();
+        AccountNameLbl = new javax.swing.JLabel();
+        CreateTournamentBtn = new javax.swing.JButton();
         OptimizedForCmb = new javax.swing.JComboBox();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        OptimizedForHeaderLbl = new javax.swing.JLabel();
+        AccuPicksHeaderLbl = new javax.swing.JLabel();
+        TournamentHeaderLbl = new javax.swing.JLabel();
         TournamentNameTxf = new javax.swing.JTextField();
-        backgroundLbl = new javax.swing.JLabel();
+        BackBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        MainPanel.setBackground(new java.awt.Color(51, 51, 51));
+        MainPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        MainPanel.setOpaque(false);
+        MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel7.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Create Tournament");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 114, -1, -1));
+        CreateTournamentHeaderLbl.setBackground(new java.awt.Color(51, 51, 51));
+        CreateTournamentHeaderLbl.setFont(new java.awt.Font("Algerian", 1, 48)); // NOI18N
+        CreateTournamentHeaderLbl.setForeground(new java.awt.Color(255, 255, 255));
+        CreateTournamentHeaderLbl.setText("Create Tournament");
+        MainPanel.add(CreateTournamentHeaderLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 114, -1, -1));
 
-        jLabel10.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("AccountName");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 184, -1, -1));
+        AccountNameLbl.setBackground(new java.awt.Color(51, 51, 51));
+        AccountNameLbl.setForeground(new java.awt.Color(255, 255, 255));
+        AccountNameLbl.setText("AccountName");
+        MainPanel.add(AccountNameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(613, 184, -1, -1));
 
-        CreateTournament.setBackground(new java.awt.Color(51, 51, 51));
-        CreateTournament.setForeground(new java.awt.Color(255, 255, 255));
-        CreateTournament.setText("Create Tournament");
-        CreateTournament.addActionListener(new java.awt.event.ActionListener() {
+        CreateTournamentBtn.setBackground(new java.awt.Color(51, 51, 51));
+        CreateTournamentBtn.setForeground(new java.awt.Color(255, 255, 255));
+        CreateTournamentBtn.setText("Create Tournament");
+        CreateTournamentBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CreateTournamentActionPerformed(evt);
+                CreateTournamentBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(CreateTournament, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 445, 350, 40));
+        MainPanel.add(CreateTournamentBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 445, 350, 40));
 
         OptimizedForCmb.setBackground(new java.awt.Color(51, 51, 51));
         OptimizedForCmb.setForeground(new java.awt.Color(255, 255, 255));
@@ -70,29 +81,38 @@ public class CreateTournament extends javax.swing.JFrame {
                 OptimizedForCmbActionPerformed(evt);
             }
         });
-        jPanel1.add(OptimizedForCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 377, 350, 40));
+        MainPanel.add(OptimizedForCmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 377, 350, 40));
 
-        jLabel11.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel11.setFont(new java.awt.Font("Algerian", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Optimized For:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 376, -1, 40));
+        OptimizedForHeaderLbl.setBackground(new java.awt.Color(51, 51, 51));
+        OptimizedForHeaderLbl.setFont(new java.awt.Font("Algerian", 1, 14)); // NOI18N
+        OptimizedForHeaderLbl.setForeground(new java.awt.Color(255, 255, 255));
+        OptimizedForHeaderLbl.setText("Optimized For:");
+        MainPanel.add(OptimizedForHeaderLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(439, 376, -1, 40));
 
-        jLabel19.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("AccuPicks");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 28, -1, -1));
+        AccuPicksHeaderLbl.setFont(new java.awt.Font("Algerian", 1, 60)); // NOI18N
+        AccuPicksHeaderLbl.setForeground(new java.awt.Color(255, 255, 255));
+        AccuPicksHeaderLbl.setText("AccuPicks");
+        MainPanel.add(AccuPicksHeaderLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(502, 28, -1, -1));
 
-        jLabel12.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel12.setFont(new java.awt.Font("Algerian", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Tournament Name:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 317, -1, 40));
+        TournamentHeaderLbl.setBackground(new java.awt.Color(51, 51, 51));
+        TournamentHeaderLbl.setFont(new java.awt.Font("Algerian", 1, 14)); // NOI18N
+        TournamentHeaderLbl.setForeground(new java.awt.Color(255, 255, 255));
+        TournamentHeaderLbl.setText("Tournament Name:");
+        MainPanel.add(TournamentHeaderLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 317, -1, 40));
 
         TournamentNameTxf.setBackground(new java.awt.Color(51, 51, 51));
         TournamentNameTxf.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(TournamentNameTxf, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 318, 350, 40));
-        jPanel1.add(backgroundLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 1340, 740));
+        MainPanel.add(TournamentNameTxf, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 318, 350, 40));
+
+        BackBtn.setBackground(new java.awt.Color(51, 51, 51));
+        BackBtn.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        BackBtn.setText("Back");
+        BackBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackBtnActionPerformed(evt);
+            }
+        });
+        MainPanel.add(BackBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(936, 690, 390, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,26 +120,26 @@ public class CreateTournament extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1342, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(MainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CreateTournamentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateTournamentActionPerformed
+    private void CreateTournamentBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateTournamentBtnActionPerformed
         /*String TournamentName = TournamentNameTxf.getText();
         String Sport = (String) OptimizedForCmb.getSelectedItem();
 
         Boolean success = (new File("C:\\Program Files\\AccuPicks\\Tournaments\\"+Sport+"\\")).mkdirs();*/
-    }//GEN-LAST:event_CreateTournamentActionPerformed
+    }//GEN-LAST:event_CreateTournamentBtnActionPerformed
 
     private void OptimizedForCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OptimizedForCmbActionPerformed
         if(OptimizedForCmb.getSelectedItem().toString().equals("Cricket")){
@@ -141,20 +161,25 @@ public class CreateTournament extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_OptimizedForCmbActionPerformed
 
+    private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
+        new AdminHome(CLIENT).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BackBtnActionPerformed
+
     public static void main(String[] args) {
-        new CreateTournament().setVisible(true);
+        //new CreateTournament().setVisible(true);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CreateTournament;
+    private javax.swing.JLabel AccountNameLbl;
+    private javax.swing.JLabel AccuPicksHeaderLbl;
+    private javax.swing.JButton BackBtn;
+    private javax.swing.JButton CreateTournamentBtn;
+    private javax.swing.JLabel CreateTournamentHeaderLbl;
+    private javax.swing.JPanel MainPanel;
     private javax.swing.JComboBox OptimizedForCmb;
+    private javax.swing.JLabel OptimizedForHeaderLbl;
+    private javax.swing.JLabel TournamentHeaderLbl;
     private javax.swing.JTextField TournamentNameTxf;
-    private javax.swing.JLabel backgroundLbl;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,17 +4,27 @@
  */
 package com.accupicks.client;
 
+import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Ronnie
  */
 public class LogInRegister extends javax.swing.JFrame {
-
+JLabel backgroundLbl = new JLabel();
     /**
      * Creates new form LogInRegister
      */
     public LogInRegister() {
         initComponents();
+        
+        setLocationRelativeTo(null);
+        
+        setLayout(new BorderLayout());
+        add(backgroundLbl);
+        backgroundLbl.setIcon(new ImageIcon(new ImageIcon(AdminHome.class.getResource("/resources/HomeBackground1.jpg")).getImage().getScaledInstance(1366, 768, java.awt.Image.SCALE_SMOOTH)));
     }
 
     /**

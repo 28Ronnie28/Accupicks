@@ -109,12 +109,10 @@
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="Batsman10HeaderLbl" max="32767" attributes="0"/>
                               <Component id="Batsman12HeaderLbl" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="Batsman2HeaderLbl" alignment="1" pref="148" max="32767" attributes="0"/>
-                                  <Component id="Batsman4HeaderLbl" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="Batsman6HeaderLbl" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="Batsman8HeaderLbl" alignment="1" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="Batsman2HeaderLbl" alignment="1" max="32767" attributes="0"/>
+                              <Component id="Batsman4HeaderLbl" alignment="1" max="32767" attributes="0"/>
+                              <Component id="Batsman6HeaderLbl" alignment="1" max="32767" attributes="0"/>
+                              <Component id="Batsman8HeaderLbl" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">

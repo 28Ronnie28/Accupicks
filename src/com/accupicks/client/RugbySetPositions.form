@@ -160,9 +160,9 @@
                                               <Component id="Prop1HeaderLbl" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="Prop1Cmb" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <EmptySpace min="886" pref="886" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="-2" pref="517" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="Winger11HeaderLbl" min="-2" max="-2" attributes="0"/>
@@ -220,16 +220,16 @@
                       <Component id="Lock5Cmb" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Flanker6HeaderLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="Flanker6Cmb" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                          <Component id="Eightman8HeaderLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="Eigthman8Cmb" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                              <Component id="Flanker7HeaderLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="Flanker7Cmb" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="Eigthman8Cmb" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="Flanker7HeaderLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="Flanker7Cmb" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="Eightman8HeaderLbl" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Flanker6HeaderLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="Flanker6Cmb" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>

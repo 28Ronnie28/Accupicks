@@ -4,17 +4,31 @@
  */
 package com.accupicks.client;
 
+import com.shared.Client;
+import java.awt.BorderLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Ronnie
  */
 public class LiveScoreKeepingHome extends javax.swing.JFrame {
-
+JLabel backgroundLbl = new JLabel();
+private final Client CLIENT;
     /**
      * Creates new form LiveScoreKeepingHome
      */
-    public LiveScoreKeepingHome() {
+    public LiveScoreKeepingHome(Client client) {
+        CLIENT = client;
         initComponents();
+        
+        setLocationRelativeTo(null);
+        AccountNameLbl.setText(CLIENT.getName());
+        
+        setLayout(new BorderLayout());
+        add(backgroundLbl);
+        backgroundLbl.setIcon(new ImageIcon(new ImageIcon(AdminHome.class.getResource("/resources/HomeBackground1.jpg")).getImage().getScaledInstance(1366, 768, java.awt.Image.SCALE_SMOOTH)));
     }
 
     /**
@@ -77,6 +91,7 @@ public class LiveScoreKeepingHome extends javax.swing.JFrame {
         setResizable(false);
 
         MainPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        MainPanel.setOpaque(false);
 
         SportTabbedPane.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -664,7 +679,7 @@ public class LiveScoreKeepingHome extends javax.swing.JFrame {
     }//GEN-LAST:event_SportTabbedPaneKeyPressed
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
-        //new AdminHome().setVisible(true);
+        new AdminHome(CLIENT).setVisible(true);
         dispose();
     }//GEN-LAST:event_BackBtnActionPerformed
 
@@ -698,7 +713,7 @@ public class LiveScoreKeepingHome extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LiveScoreKeepingHome().setVisible(true);
+                //new LiveScoreKeepingHome().setVisible(true);
             }
         });
     }

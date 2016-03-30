@@ -5,7 +5,6 @@
 package com.accupicks.client;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -14,7 +13,7 @@ import javax.swing.JLabel;
  * @author Ronnie
  */
 public class CricketSetPositions extends javax.swing.JDialog {
-
+JLabel backgroundLbl = new JLabel();
     /**
      * Creates new form CricketSetPositions
      */
@@ -22,10 +21,11 @@ public class CricketSetPositions extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
+        setLocationRelativeTo(null);
+        
         setLayout(new BorderLayout());
-	JLabel background=new JLabel(new ImageIcon("../AccuPicks/src/resources/CricketBackground.jpg"));
-	add(background);
-	background.setLayout(new FlowLayout());
+        add(backgroundLbl);
+        backgroundLbl.setIcon(new ImageIcon(new ImageIcon(AdminHome.class.getResource("/resources/CricketBackground.jpg")).getImage().getScaledInstance(1366, 768, java.awt.Image.SCALE_SMOOTH)));
         
     }
 
@@ -369,7 +369,7 @@ public class CricketSetPositions extends javax.swing.JDialog {
     }//GEN-LAST:event_SetPositionsBtnActionPerformed
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
-        new LiveScoreKeepingHome().setVisible(true);
+        //new LiveScoreKeepingHome(CLIENT).setVisible(true);
         dispose();
     }//GEN-LAST:event_BackBtnActionPerformed
 

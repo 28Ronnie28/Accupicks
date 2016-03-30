@@ -5,26 +5,30 @@
 package com.accupicks.client;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import com.shared.Client;
 
 /**
  *
  * @author Ronnie
  */
 public class RugbyLiveScoreKeepingInfo extends javax.swing.JFrame {
-
+JLabel backgroundLbl = new JLabel();
+private final Client CLIENT;
     /**
      * Creates new form RugbyLiveScoreKeepingInfo
      */
-    public RugbyLiveScoreKeepingInfo() {
+    public RugbyLiveScoreKeepingInfo(Client client) {
+        CLIENT = client;
         initComponents();
         
+        setLocationRelativeTo(null);
+        AccountNameLbl.setText(CLIENT.getName());
+        
         setLayout(new BorderLayout());
-	JLabel background=new JLabel(new ImageIcon("../AccuPicks/src/resources/RugbyBackground.png"));
-	add(background);
-	background.setLayout(new FlowLayout());
+        add(backgroundLbl);
+        backgroundLbl.setIcon(new ImageIcon(new ImageIcon(AdminHome.class.getResource("/resources/RugbyBackground.png")).getImage().getScaledInstance(1366, 768, java.awt.Image.SCALE_SMOOTH)));
     }
 
     /**
@@ -214,7 +218,7 @@ public class RugbyLiveScoreKeepingInfo extends javax.swing.JFrame {
     }//GEN-LAST:event_GoToMatchBtnActionPerformed
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
-        new LiveScoreKeepingHome().setVisible(true);
+        new LiveScoreKeepingHome(CLIENT).setVisible(true);
         dispose();
     }//GEN-LAST:event_BackBtnActionPerformed
 
@@ -252,7 +256,7 @@ public class RugbyLiveScoreKeepingInfo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RugbyLiveScoreKeepingInfo().setVisible(true);
+                //new RugbyLiveScoreKeepingInfo().setVisible(true);
             }
         });
     }

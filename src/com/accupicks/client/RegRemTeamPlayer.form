@@ -60,25 +60,23 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="492" max="-2" attributes="0"/>
-                                  <Component id="AccuPicksHeaderLbl" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="623" max="-2" attributes="0"/>
                                   <Component id="AccountNameLbl" min="-2" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="RegRemTabbedPanel" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="BackBtn" min="-2" pref="350" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="490" max="-2" attributes="0"/>
+                                  <Component id="AccuPicksHeaderLbl" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="0" pref="506" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="RegRemTabbedPanel" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="BackBtn" min="-2" pref="350" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -87,16 +85,16 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="AccuPicksHeaderLbl" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
                   <Component id="AccountNameLbl" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="RegRemTabbedPanel" min="-2" pref="569" max="-2" attributes="0"/>
+                  <Component id="RegRemTabbedPanel" min="-2" pref="551" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="BackBtn" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -185,7 +183,7 @@
                               <Component id="RegTourRegisterHeaderLbl" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="RegTourTournamentMainHeaderLbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jComboBox22" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="RegTourSportHeaderLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
@@ -197,7 +195,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="RegTourBtn" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace pref="184" max="32767" attributes="0"/>
+                              <EmptySpace pref="190" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -316,29 +314,24 @@
                                                   <Component id="RegPlayNameHeaderLbl" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="RegPlaySportCmb" pref="314" max="32767" attributes="0"/>
-                                                          <Component id="RegPlayRegisterHeaderLbl" alignment="0" max="32767" attributes="0"/>
-                                                          <Component id="RegPlayTournamentCmb" alignment="0" max="32767" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="RegPlayTeamCmb" alignment="0" pref="314" max="32767" attributes="0"/>
-                                                  <Component id="RegPlayNameTxf" alignment="0" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Component id="RegPlayTeamCmb" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="RegPlaySportCmb" alignment="0" pref="314" max="32767" attributes="0"/>
+                                                  <Component id="RegPlayRegisterHeaderLbl" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="RegPlayTournamentCmb" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="RegPlayNameTxf" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="RegPlaySurnameHeaderLbl" min="-2" pref="179" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="RegPlayBtn" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="RegPlayBtn" max="32767" attributes="0"/>
                                                   <Component id="RegPlaySurnameTxf" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="391" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="403" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="587" max="-2" attributes="0"/>
@@ -356,7 +349,7 @@
                               <Component id="RegPlayRegisterHeaderLbl" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="RegPlayPlayerHeaderLbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="RegPlaySportCmb" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="RegPlaySportHeaderLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
@@ -521,6 +514,9 @@
                           <StringArray count="0"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegPlayTeamCmbActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -588,7 +584,7 @@
                               <Component id="RegTeamRegisterHeaderLbl" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="RegTeamTeamHeaderLbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="RegTeamSportCmb" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="RegTeamSportHeaderLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
@@ -605,7 +601,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="RegTeamBtn" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace pref="126" max="32767" attributes="0"/>
+                              <EmptySpace pref="132" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -785,7 +781,7 @@
                               <Component id="RemTourRemoveHeaderLbl" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="RemTourTournamentMainHeaderLbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="RemTourSportCmb" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="RemTourSportHeaderLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
@@ -797,7 +793,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="RemTourBtn" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace pref="184" max="32767" attributes="0"/>
+                              <EmptySpace pref="190" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -946,7 +942,7 @@
                               <Component id="RemPlayRemoveHeaderLbl" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="RemPlayPlayerHeaderLbl" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="RemPlaySportCmb" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="RemPlaySportHeaderLbl" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
@@ -968,7 +964,7 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="RemPlayBtn" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace pref="68" max="32767" attributes="0"/>
+                              <EmptySpace pref="74" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1119,7 +1115,7 @@
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel53" min="-2" pref="178" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jComboBox20" pref="303" max="32767" attributes="0"/>
+                                              <Component id="jComboBox20" pref="324" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -1137,7 +1133,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="523" max="32767" attributes="0"/>
+                              <EmptySpace pref="502" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1148,7 +1144,7 @@
                               <Component id="RemTeamRemoveHeaderLbl" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jComboBox16" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="jLabel50" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
@@ -1165,7 +1161,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Component id="RugbyGoToMatchBtn4" min="-2" pref="40" max="-2" attributes="0"/>
-                              <EmptySpace pref="120" max="32767" attributes="0"/>
+                              <EmptySpace pref="126" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

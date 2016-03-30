@@ -5,28 +5,29 @@
 package com.accupicks.client;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import com.shared.Client;
 
 /**
  *
  * @author Ronnie
  */
 public class RegRemTeamPlayer extends javax.swing.JFrame {
-JLabel background = new JLabel();
+JLabel backgroundLbl = new JLabel();
+private final Client CLIENT;
     /**
      * Creates new form RegRemTeamPlayer
      */
-    public RegRemTeamPlayer() {
+    public RegRemTeamPlayer(Client client) {
+        CLIENT = client;
         initComponents();
-        
+        setLocationRelativeTo(null);
+        AccountNameLbl.setText(CLIENT.getName());
         
         setLayout(new BorderLayout());
-	JLabel background=new JLabel(new ImageIcon("../AccuPicks/src/resources/HomeBackground1.jpg"));
-	add(background);
-	background.setLayout(new FlowLayout());
+        add(backgroundLbl);
+        backgroundLbl.setIcon(new ImageIcon(new ImageIcon(AdminHome.class.getResource("/resources/HomeBackground1.jpg")).getImage().getScaledInstance(1366, 768, java.awt.Image.SCALE_SMOOTH)));
     }
 
     /**
@@ -184,7 +185,7 @@ JLabel background = new JLabel();
                 .addComponent(RegTourRegisterHeaderLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RegTourTournamentMainHeaderLbl)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addGroup(RegTourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegTourSportHeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -194,7 +195,7 @@ JLabel background = new JLabel();
                     .addComponent(AccountNametxf2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(RegTourBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
         RegPlayTeamTourTabbedPane.addTab("Tournament", RegTourPanel);
@@ -253,6 +254,11 @@ JLabel background = new JLabel();
         RegPlaySurnameHeaderLbl.setText("Surname:");
 
         RegPlayTeamCmb.setFont(new java.awt.Font("Algerian", 1, 18)); // NOI18N
+        RegPlayTeamCmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegPlayTeamCmbActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout RegPlayPanelLayout = new javax.swing.GroupLayout(RegPlayPanel);
         RegPlayPanel.setLayout(RegPlayPanelLayout);
@@ -271,22 +277,19 @@ JLabel background = new JLabel();
                                         .addComponent(RegPlayTeamHeaderLbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(RegPlayNameHeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(RegPlayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(RegPlayPanelLayout.createSequentialGroup()
-                                        .addGroup(RegPlayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(RegPlaySportCmb, 0, 314, Short.MAX_VALUE)
-                                            .addComponent(RegPlayRegisterHeaderLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(RegPlayTournamentCmb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(RegPlayTeamCmb, 0, 314, Short.MAX_VALUE)
+                                .addGroup(RegPlayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(RegPlayTeamCmb, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(RegPlaySportCmb, javax.swing.GroupLayout.Alignment.LEADING, 0, 314, Short.MAX_VALUE)
+                                    .addComponent(RegPlayRegisterHeaderLbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(RegPlayTournamentCmb, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(RegPlayNameTxf)))
                             .addGroup(RegPlayPanelLayout.createSequentialGroup()
                                 .addComponent(RegPlaySurnameHeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(RegPlayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(RegPlayBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(RegPlayBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(RegPlaySurnameTxf))))
-                        .addGap(391, 391, 391))
+                        .addGap(403, 403, 403))
                     .addGroup(RegPlayPanelLayout.createSequentialGroup()
                         .addGap(587, 587, 587)
                         .addComponent(RegPlayPlayerHeaderLbl)))
@@ -299,7 +302,7 @@ JLabel background = new JLabel();
                 .addComponent(RegPlayRegisterHeaderLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RegPlayPlayerHeaderLbl)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addGroup(RegPlayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegPlaySportCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegPlaySportHeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -407,7 +410,7 @@ JLabel background = new JLabel();
                 .addComponent(RegTeamRegisterHeaderLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RegTeamTeamHeaderLbl)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addGroup(RegTeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegTeamSportCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegTeamSportHeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -421,7 +424,7 @@ JLabel background = new JLabel();
                     .addComponent(RegTeamTeamnameTxf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(RegTeamBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         RegPlayTeamTourTabbedPane.addTab("Team", RegTeamPanel);
@@ -493,7 +496,7 @@ JLabel background = new JLabel();
                 .addComponent(RemTourRemoveHeaderLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RemTourTournamentMainHeaderLbl)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addGroup(RemTourPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RemTourSportCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RemTourSportHeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -503,7 +506,7 @@ JLabel background = new JLabel();
                     .addComponent(RemTourTournamentCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(RemTourBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
         RemPlayTeamTourTabbedPane.addTab("Tournament", RemTourPanel);
@@ -593,7 +596,7 @@ JLabel background = new JLabel();
                 .addComponent(RemPlayRemoveHeaderLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RemPlayPlayerHeaderLbl)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addGroup(RemPlayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RemPlaySportCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RemPlaySportHeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -611,7 +614,7 @@ JLabel background = new JLabel();
                     .addComponent(RemPlayNameCmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(RemPlayBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         RemPlayTeamTourTabbedPane.addTab("Player", RemPlayPanel);
@@ -680,7 +683,7 @@ JLabel background = new JLabel();
                             .addGroup(RemTeamPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox20, 0, 303, Short.MAX_VALUE))
+                                .addComponent(jComboBox20, 0, 324, Short.MAX_VALUE))
                             .addGroup(RemTeamPanelLayout.createSequentialGroup()
                                 .addGroup(RemTeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel49, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -691,7 +694,7 @@ JLabel background = new JLabel();
                                     .addComponent(RugbyGoToMatchBtn4, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                                     .addComponent(jComboBox19, 0, 303, Short.MAX_VALUE)
                                     .addComponent(RemTeamRemoveHeaderLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                .addContainerGap(523, Short.MAX_VALUE))
+                .addContainerGap(502, Short.MAX_VALUE))
         );
         RemTeamPanelLayout.setVerticalGroup(
             RemTeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -700,7 +703,7 @@ JLabel background = new JLabel();
                 .addComponent(RemTeamRemoveHeaderLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel41)
-                .addGap(42, 42, 42)
+                .addGap(18, 18, 18)
                 .addGroup(RemTeamPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -714,7 +717,7 @@ JLabel background = new JLabel();
                     .addComponent(jComboBox20, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(RugbyGoToMatchBtn4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         RemPlayTeamTourTabbedPane.addTab("Team", RemTeamPanel);
@@ -745,30 +748,29 @@ JLabel background = new JLabel();
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGap(492, 492, 492)
-                                .addComponent(AccuPicksHeaderLbl))
-                            .addGroup(MainPanelLayout.createSequentialGroup()
                                 .addGap(623, 623, 623)
-                                .addComponent(AccountNameLbl)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addComponent(AccountNameLbl))
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGap(490, 490, 490)
+                                .addComponent(AccuPicksHeaderLbl)))
+                        .addGap(0, 506, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RegRemTabbedPanel)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(RegRemTabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(AccuPicksHeaderLbl)
-                .addGap(3, 3, 3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(AccountNameLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RegRemTabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RegRemTabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BackBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -815,7 +817,7 @@ JLabel background = new JLabel();
     }//GEN-LAST:event_RemTourSportCmbActionPerformed
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
-        //new AdminHome().setVisible(true);
+        new AdminHome(CLIENT).setVisible(true);
         dispose();
     }//GEN-LAST:event_BackBtnActionPerformed
 
@@ -834,6 +836,10 @@ JLabel background = new JLabel();
     private void RegPlaySportCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegPlaySportCmbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RegPlaySportCmbActionPerformed
+
+    private void RegPlayTeamCmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegPlayTeamCmbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegPlayTeamCmbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -865,7 +871,7 @@ JLabel background = new JLabel();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegRemTeamPlayer().setVisible(true);
+                //new RegRemTeamPlayer(CLIENT).setVisible(true);
             }
         });
     }

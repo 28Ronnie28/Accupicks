@@ -5,7 +5,6 @@
 package com.accupicks.client;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -14,18 +13,19 @@ import javax.swing.JLabel;
  * @author Ronnie
  */
 public class RugbySetPositions extends javax.swing.JDialog {
-
+JLabel backgroundLbl = new JLabel();
     /**
      * Creates new form RugbySetPositions
      */
     public RugbySetPositions(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents();
+
+        setLocationRelativeTo(null);
         
         setLayout(new BorderLayout());
-	JLabel background=new JLabel(new ImageIcon("../AccuPicks/src/resources/RugbyBackground.png"));
-	add(background);
-	background.setLayout(new FlowLayout());
+        add(backgroundLbl);
+        backgroundLbl.setIcon(new ImageIcon(new ImageIcon(AdminHome.class.getResource("/resources/RugbyBackground.png")).getImage().getScaledInstance(1366, 768, java.awt.Image.SCALE_SMOOTH)));
+        
     }
 
     /**
@@ -352,8 +352,8 @@ public class RugbySetPositions extends javax.swing.JDialog {
                                         .addGroup(MainPanelLayout.createSequentialGroup()
                                             .addComponent(Prop1HeaderLbl)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(Prop1Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(886, 886, 886))))
+                                            .addComponent(Prop1Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(517, 517, 517))
                                 .addGroup(MainPanelLayout.createSequentialGroup()
                                     .addComponent(Winger11HeaderLbl)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -398,15 +398,15 @@ public class RugbySetPositions extends javax.swing.JDialog {
                     .addComponent(Lock5HeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Lock5Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Flanker6HeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Flanker6Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Eigthman8Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Eightman8HeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Eigthman8Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Flanker7HeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Flanker7Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(Flanker7HeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Flanker7Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Eightman8HeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Flanker6HeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Flanker6Cmb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ScrumHalf9HeaderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -465,7 +465,7 @@ public class RugbySetPositions extends javax.swing.JDialog {
     }//GEN-LAST:event_SetPositionsBtnActionPerformed
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
-        new LiveScoreKeepingHome().setVisible(true);
+        //new LiveScoreKeepingHome().setVisible(true);
         dispose();
     }//GEN-LAST:event_BackBtnActionPerformed
 
