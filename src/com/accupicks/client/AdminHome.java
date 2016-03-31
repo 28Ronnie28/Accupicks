@@ -23,7 +23,6 @@ public class AdminHome extends javax.swing.JFrame {
         setLayout(new BorderLayout());
         add(backgroundLbl2);
         backgroundLbl2.setIcon(new ImageIcon(new ImageIcon(AdminHome.class.getResource("/resources/HomeBackground1.jpg")).getImage().getScaledInstance(1366, 768, java.awt.Image.SCALE_SMOOTH)));
-        
     }
 
     @SuppressWarnings("unchecked")

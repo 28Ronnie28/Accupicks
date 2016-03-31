@@ -18,13 +18,10 @@ private Client client;
 
     public LogIn() {
         initComponents();
-        
         setLocationRelativeTo(null);
-        
         setLayout(new BorderLayout());
         add(backgroundLbl);
         backgroundLbl.setIcon(new ImageIcon(new ImageIcon(AdminHome.class.getResource("/resources/HomeBackground1.jpg")).getImage().getScaledInstance(1366, 768, java.awt.Image.SCALE_SMOOTH)));
-        
         cch = new ClientConenctionHandler();
         connect();
     }
@@ -164,7 +161,10 @@ private Client client;
     private void ForgotPasswordLblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForgotPasswordLblMouseClicked
         // TODO forgot password
         String username;
-        while ((username = JOptionPane.showInputDialog("Enter username")) == null && username.length() < 4);
+        while ((username = JOptionPane.showInputDialog("Enter username to send email with password")) != null && username.equals("") && username.length() < 4);
+        if (username != null) {
+            
+        }
     }//GEN-LAST:event_ForgotPasswordLblMouseClicked
 
     public static void main(String args[]) {

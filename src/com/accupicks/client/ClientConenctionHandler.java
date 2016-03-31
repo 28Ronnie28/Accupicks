@@ -48,6 +48,28 @@ public class ClientConenctionHandler{
         return client;
     }
     
+    public int forgotPassword(String username) {
+        //result == -2) unknown error
+        // result == -1) username not found
+        // result == 0) email not sent
+        // result == 1  successful
+        if (validUsername(username)) {
+            sendString("SendPassword:" + username);
+            if (getReply().equals("true")) {
+                return 1;
+            } else {
+                return 0;
+            }
+        } else {
+            return -1;
+        }
+    }
+    
+    public Boolean validUsername(String username) {
+        sendString("ValidateUsername:" + username);
+        return getReply().equals("true");
+    }
+    
     public String getReply() {
         try {
             while (ois.available() <= 0);

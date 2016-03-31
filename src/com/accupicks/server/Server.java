@@ -5,9 +5,7 @@
 package com.accupicks.server;
 
 import com.shared.Client;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
@@ -149,10 +147,15 @@ public class Server {
                     }
                 } else if (authorised && command.equals("GetClient")) {
                     sendObject(client);
-                } else if (authorised && command.startsWith("auth:")) {
-
-                } else if (authorised && command.startsWith("auth:")) {
-
+                } else if (authorised && command.startsWith("ValidateUsername:")) {
+                    //TODO retrieve from database
+                    if (command.split(":").length > 1 && command.split(":")[1].equals("admin")) {
+                        send("true");
+                    } else {
+                        send("false");
+                    }
+                } else if (authorised && command.startsWith("SendPassword:")) {
+                    
                 } else {
                     System.out.println("Server> Connection " + connectionNum + "> Unknown command from client: " + command + "'");
                 }
