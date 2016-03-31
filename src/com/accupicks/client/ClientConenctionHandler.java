@@ -54,13 +54,17 @@ public class ClientConenctionHandler{
         // result == 0) email not sent
         // result == 1  successful
         if (validUsername(username)) {
+            System.out.println("Client> Valid username: '" + username + "'");
             sendString("SendPassword:" + username);
             if (getReply().equals("true")) {
+                System.out.println("Client> Sent password");
                 return 1;
             } else {
+                System.out.println("Client> Failed to send password");
                 return 0;
             }
         } else {
+            System.out.println("Client> Invalid username: '" + username + "'");
             return -1;
         }
     }
@@ -73,7 +77,7 @@ public class ClientConenctionHandler{
     public String getReply() {
         try {
             while (ois.available() <= 0);
-            return ois.readUTF();
+            return ois.readUTF().trim();
         } catch (IOException ex) {
             System.out.println("Client> " + ex);
         }

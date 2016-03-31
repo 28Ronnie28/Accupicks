@@ -163,7 +163,7 @@ private Client client;
         String username;
         while ((username = JOptionPane.showInputDialog("Enter username to send email with password")) != null && username.equals("") && username.length() < 4);
         if (username != null) {
-            
+            cch.forgotPassword(username);
         }
     }//GEN-LAST:event_ForgotPasswordLblMouseClicked
 

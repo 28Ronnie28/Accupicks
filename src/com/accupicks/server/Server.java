@@ -115,6 +115,7 @@ public class Server {
         private ObjectOutputStream oos;
         private Client client;
         private Boolean authorised = false;
+        private Email email = new Email();
 
         public ConnectionHandler(Socket s, int connectionNum) {
             this.s = s;
@@ -131,7 +132,7 @@ public class Server {
         @Override
         public void run() {
             while (true) {
-                String command = getReply();
+                String command = getReply().trim();
                 if (command.startsWith("Auth:")) {
                     String userPass = command.substring(5);
                     if (userPass.contains(":") && userPass.split(":").length == 2) {
@@ -147,15 +148,25 @@ public class Server {
                     }
                 } else if (authorised && command.equals("GetClient")) {
                     sendObject(client);
-                } else if (authorised && command.startsWith("ValidateUsername:")) {
+                    System.out.println("Server> Connection " + connectionNum + "> Sent client info to client");
+                } else if (command.startsWith("ValidateUsername:")) {
                     //TODO retrieve from database
                     if (command.split(":").length > 1 && command.split(":")[1].equals("admin")) {
                         send("true");
+                        System.out.println("Server> Connection " + connectionNum + "> Valid username: '" + command.split(":")[1] + "'");
                     } else {
                         send("false");
+                        System.out.println("Server> Connection " + connectionNum + "> Invalid username: '" + command.split(":")[1] + "'");
                     }
-                } else if (authorised && command.startsWith("SendPassword:")) {
-                    
+                } else if (command.startsWith("SendPassword:")) {
+                    //TODO retrieve from database
+                    if (email.emailPassword("admin", "stephanmalan.rob@gmail.com", "admin", connectionNum) == 1) {
+                        send("true");
+                        System.out.println("Server> Connection " + connectionNum + "> Sent email");
+                    } else {
+                        send("false");
+                        System.out.println("Server> Connection " + connectionNum + "> Failed to send email");
+                    }
                 } else {
                     System.out.println("Server> Connection " + connectionNum + "> Unknown command from client: " + command + "'");
                 }
