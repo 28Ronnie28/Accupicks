@@ -70,14 +70,7 @@
     nbproject/build-impl.xml file. 
 
     -->
-    <target name="jar" depends="compile">
-    <jar destfile="${jar-dir}/${ant.project.name}.jar" basedir="${classes-dir}">
-        <manifest>
-            <attribute name="Main-Class" value="${main-class}"/>
-        </manifest>
-        <zipgroupfileset dir="${lib-dir}" includes="*.jar"/>
-    </jar>
-</target>
+
 
         <target name="run" depends="AccuPicks-impl.jar">
             <exec dir="bin" executable="launcher.exe">
