@@ -97,7 +97,7 @@
 	</mapper>
 </pathconvert>
 <path id="jars">
-    <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    <fileset dir="dist/${lib.dir}" includes="**/*.jar"/>
 </path>
 
 <target name="compile">
