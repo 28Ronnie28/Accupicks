@@ -10,9 +10,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Server {
 
@@ -20,13 +26,13 @@ public class Server {
     final int MAX_CONNECTIONS = 100;
     final int PORT = 25760;
     private Socket s;
-    private ClientListner cl;
-    private ServerCommandListner scl;
+    private ClientListner cl = new ClientListner();
+    private ServerCommandListner scl = new ServerCommandListner();
+    private Connection con;
+    private Statement stmt;
 
     public Server() {
-        cl = new ClientListner();
         cl.start();
-        scl = new ServerCommandListner();
         scl.start();
     }
 
@@ -122,7 +128,6 @@ public class Server {
             this.connectionNum = connectionNum;
             try {
                 oos = new ObjectOutputStream(s.getOutputStream());
-                //oos.flush();
                 ois = new ObjectInputStream(s.getInputStream());
             } catch (IOException ex) {
                 System.out.println("Server> Connection " + connectionNum + "> " + ex);
@@ -224,6 +229,17 @@ public class Server {
         }
     }
 
+    public void connect() {
+        try {
+            Class.forName("org.sqlite.JDBC");
+            con = DriverManager.getConnection("jdbc:sqlite:C:/Users/Stephan/temp.db");
+            stmt = con.createStatement();
+            System.out.println("Client> Connected to database");
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println("Client> " + ex);
+        }
+    }
+    
     public void updateConnectionList() {
         int count = 1;
         for (ConnectionHandler ch : connectionsList) {
