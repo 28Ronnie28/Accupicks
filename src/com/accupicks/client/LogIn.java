@@ -143,15 +143,23 @@ private Client client;
     }// </editor-fold>//GEN-END:initComponents
 
     private void LogInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInBtnActionPerformed
-        if (cch.authorise(AccountNameTxf.getText(), String.valueOf(PasswordTxf.getPassword()))) {
-            System.out.println("Client> Authorised");
+        int reply = cch.authorise(AccountNameTxf.getText(), String.valueOf(PasswordTxf.getPassword()));
+    switch (reply) {
+        case 1:
+            System.out.println("Client> Authorised Admin");
             client = cch.getClient();
-            System.out.println("Client> Welcome " + client.getName());
             new AdminHome(client).setVisible(true);
             dispose();
-        } else {
+            break;
+        case 0:
+            System.out.println("Client> Authorised Client");
+            client = cch.getClient();
+            //TODO send to client home
+            break;
+        default:
             System.out.println("Client> Incorrect username or password");
-        }
+            break;
+    }
     }//GEN-LAST:event_LogInBtnActionPerformed
 
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBtnActionPerformed

@@ -36,10 +36,19 @@ public class ClientConenctionHandler{
         return false;
     }
 
-    public Boolean authorise(String username, String password) {
+    public int authorise(String username, String password) {
+        // return -1 not authed
+        // return 0 client
+        // return 1 admin
         System.out.println("Auth:" + username + ":" + password);
         sendString("Auth:" + username + ":" + password);
-        return getReply().equals("Authed");
+        String returned = getReply();
+        if (returned.equals("Auth Admin")) {
+            return 1;
+        } else if (returned.equals("Auth Client")) {
+            return 0;
+        }
+        return -1;
     }
     
     public Client getClient() {

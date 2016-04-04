@@ -12,6 +12,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -30,10 +31,22 @@ public class Server {
     private ServerCommandListner scl = new ServerCommandListner();
     private Connection con;
     private Statement stmt;
+    private ResultSet rs;
+    private DatabaseHandler dh = new DatabaseHandler();
 
     public Server() {
         cl.start();
         scl.start();
+        connectToDatabase();
+    }
+    
+    public void connectToDatabase() {
+        for (int i = 1; i < 11; i++) {
+            System.out.println("Server> Trying to connect to database... " + i);
+            if (dh.connect()) {
+                i = 11;
+            }
+        }
     }
 
     //Thread to listen to input from user into server console
@@ -155,7 +168,9 @@ public class Server {
                     sendObject(client);
                     System.out.println("Server> Connection " + connectionNum + "> Sent client info to client");
                 } else if (command.startsWith("ValidateUsername:")) {
-                    //TODO retrieve from database
+                    dh.setResultSet("SELECT * FROM users WHERE username = '" + command.split(":")[1] + "'", connectionNum);
+                    
+                    
                     if (command.split(":").length > 1 && command.split(":")[1].equals("admin")) {
                         send("true");
                         System.out.println("Server> Connection " + connectionNum + "> Valid username: '" + command.split(":")[1] + "'");
@@ -229,17 +244,6 @@ public class Server {
         }
     }
 
-    public void connect() {
-        try {
-            Class.forName("org.sqlite.JDBC");
-            con = DriverManager.getConnection("jdbc:sqlite:C:/Users/Stephan/temp.db");
-            stmt = con.createStatement();
-            System.out.println("Client> Connected to database");
-        } catch (ClassNotFoundException | SQLException ex) {
-            System.out.println("Client> " + ex);
-        }
-    }
-    
     public void updateConnectionList() {
         int count = 1;
         for (ConnectionHandler ch : connectionsList) {
@@ -251,5 +255,4 @@ public class Server {
     public static void main(String[] args) {
         new Server();
     }
-
 }
