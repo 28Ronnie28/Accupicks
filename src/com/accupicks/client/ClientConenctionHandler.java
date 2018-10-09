@@ -15,7 +15,7 @@ public class ClientConenctionHandler{
     private ObjectInputStream ois;
     private ObjectOutputStream oos;
     private Socket s;
-    private final String IP_ADDRESS = "127.0.0.1";
+    private final String IP_ADDRESS = "192.168.0.69";
     private final int PORT = 25760;
     private Client client;
     
